@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Italy</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/assets/photos.css">
+    </head>
+
+    <body>
+        <script>
+            const theme = localStorage.getItem("theme") || "dark";
+            document.body.classList.add(theme);
+        </script>
+
+        <div class="menu-btn-container">
+            <div class="container">
+                <button type="button" class="menu-btn">menu</button>
+            </div>
+        </div>
+
+        <nav class="nav hidden">
+            <ol class="nav-items">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/photos">Photos</a></li>
+                <li class="nav-item"><a href="/#work">My Work</a></li>
+                <li class="nav-item"><a href="/#about-me">About</a></li>
+                <li class="nav-item"><a href="/#skills">My Skills</a></li>
+                <li class="nav-item">
+                    <a href="/#contact" data-focused="last-focused">Contact</a>
+                </li>
+            </ol>
+        </nav>
+
+        <header class="header photos-header">
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="h1">Italy</h1>
+                    <p class="header-text">This is a placeholder page for the Italy folder.</p>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <header class="header photos-header">
+                <div class="container">
+                    <div class="header-content">
+                        <h1 class="h1">Italy</h1>
+                        <p class="header-text">Gallery — Italy</p>
+                    </div>
+                </div>
+            </header>
+
+            <section class="container gallery-section">
+                <!-- root where JS will render the top-strip and grid for this folder -->
+                <div id="folder-page-root"></div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <nav>
+                        <ol class="footer-links">
+                            <li class="footer-link">
+                                <a title="GitHub" href="https://github.com/Axion-Industries" target="_blank" rel="noopener">
+                                    <img loading="lazy" src="/assets/images/social-links/github.svg" alt="GitHub" />
+                                </a>
+                            </li>
+                            <li class="footer-link">
+                                <a title="GitLab" href="https://gitlab.com/Axion-Industries" target="_blank" rel="noopener">
+                                    <img loading="lazy" src="/assets/images/social-links/gitlab.svg" alt="GitLab" />
+                                </a>
+                            </li>
+                            <li class="footer-link">
+                                <a title="Instagram" href="https://www.instagram.com/@bogdanzogovic123" target="_blank" rel="noopener">
+                                    <img loading="lazy" src="/assets/images/social-links/instagram.svg" alt="Instagram" />
+                                </a>
+                            </li>
+                            <li class="footer-link">
+                                <a title="Threads" href="https://www.threads.com/@bogdanzogovic123" target="_blank" rel="noopener">
+                                    <img loading="lazy" src="/assets/images/social-links/threads.svg" alt="Threads" />
+                                </a>
+                            </li>
+                        </ol>
+                    </nav>
+                    <p class="footer-text">
+                        &copy; <span>2025</span> - Portfolio by <a target="_blank" rel="noopener" href="https://github.com/Axion-Industries">Bogdan Zogovic.</a>
+                    </p>
+                    <label class="theme-switch" for="theme-switch">
+                        <span>Dark Theme</span>
+                        <input type="checkbox" id="theme-switch" role="switch" />
+                    </label>
+                </div>
+            </div>
+        </footer>
+
+    <script src="/assets/photos.js" defer></script>
+    <script src="/script.js" defer></script>
+    </body>
+</html>

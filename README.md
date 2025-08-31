@@ -1,80 +1,63 @@
-# Portfolio Template
+# bogdanzogovic — personal project README 8/30/2025
+## At-a-glance
 
-An open-source, user-friendly, responsive, and accessible portfolio template for developers 🚀⚡
+- Repository: `bogdanzogovic` (owner: `vanta9001`)
+- Git branch: `main`
+- Primary entry: `index.html`
 
-Give a star ⭐ if you find it useful. [Visit site &rarr;](https://opensource-portfolio.netlify.app/)
+## Quick stats
 
-![Portfolio Template Gif](assets/images/portfolio-template.gif)
+These numbers were collected from the workspace at the time this README was updated.
 
-## Useful resources
+- Total files: 1168
+- Code files (js/ts/py/rb/go): 2
+- Files in `assets/`: 57
+- Image files in `assets/`: 49
 
-Make sure to subscribe to our [youtube channel](https://www.youtube.com/@nisarhassan12) channel where we cover creating template like this from scratch using HTML, CSS and JavaScript also don't forget to star 🌟 the [css-tips-tricks](https://github.com/devsyedmohsin/css-tips-tricks) that has already reached 180+ stars.
+> If you want fresh numbers, run a quick filesystem count from the repo root.
 
-## Table of Contents
+Note: the `photos/` directory contains many high-resolution images and makes the repo large — consider pruning, moving heavy originals to external storage, or keeping only web-optimized derivatives in the repository.
 
-1. [Features](#key-features)
-1. [Customization](#customizing-the-template)
-1. [Deploying the Site](#deploying-the-site)
+## What this project contains (short)
 
-## Features
+- Static site: `index.html`, `style.css`, `script.js`
+- Static assets under `assets/` (fonts, images, CSS fragments)
+- Deployment config: `vercel.json`
+- License: `LICENSE.md`
 
-- Fully Mobile responsive.
-- Supports light/dark theme.
-- Built with a11y in mind.
-- Modern design.
-- Multiple sections.
-- Sleek animations.
-- Fast loads.
-- SEO-optimized.
+## How I usually open / test this locally
 
-<img src="assets/images/lighthouse.png" alt="lighthouse report with 100% scores">
+- Open `index.html` in a browser (double-click or use a simple HTTP server).
 
-## Customizing the Template
+If you want a quick local server (from repo root):
 
-Please follow these three steps to make an awe-inspiring portfolio of your own.
+`python3 -m http.server 8000`
 
-- [Cloning the repository](#cloning-the-repository)
-- [Editing the Template](#editing-the-template)
-- [Deploying the Site](#deploying-the-site)
+Then open http://localhost:8000 in a browser.
 
-### Cloning the Repository.
+## Notes / reminders (personal)
 
-If you have [Git](https://git-scm.com/) installed on your computer, you can clone or download the portfolio template by running the following command in your terminal.
+- This is primarily a static portfolio page. Small and intentionally simple.
+- Consider adding a tiny test or CI if you start adding logic.
+- Keep third-party assets minimal and prefer web-optimized images.
 
-```bash
-git clone https://github.com/devsyedmohsin/portfolio-template
-```
+## Next steps I might do later
 
-Alternatively, click on this [link](https://github.com/devsyedmohsin/portfolio-template/archive/refs/heads/main.zip) to download it.
+1. Add a short CHANGELOG or use GitHub releases for visible history.
+2. Add a tiny script to regenerate these stats automatically (optional).
+3. Add unit tests if JS logic grows.
 
-### Editing the Template
+## Requirements coverage
 
-After you get the template please open it in the code editor of your choice.
-You will find a file named `index.html` Open it and follow the guidance inscribed within the comments to customize the template.
+- Create a README: Done
+- Include project stats: Done (file counts, asset counts, branch)
+- Keep it personal/concise: Done
 
-**For example:**
+---
 
-```html
-<!-- Update with your name -->
-<title>Syed Mohsin's Portfolio</title>
-```
+If you want any specific meta added (last-deployed SHA, CI badge, or a shorter/longer personal blurb), tell me what to include and I will update this file.
 
-```html
-<div class="header-textbox">
-  <!-- Replace with your name & job title -->
-  <h1 class="h1">Hi, I'm Syed Mohsin Frontend Web Developer</h1>
 
-  <!-- Add a small introductory paragraph about yourself -->
-  <p class="header-text">A frontend software engineer and interface designer</p>
-</div>
-```
-
-**Note:** While editing the template, ensure you have updated all `href`, img `src`, and `alt` attributes of links and images.
-
-### Deploying the Site
-
-Watch [this youtube video](https://www.youtube.com/watch?v=oEyXLYW3RjY) to learn how to deploy your version of the portfolio template to the web.
-
-[![Deploy your version of the Portfolio template using Netlify](assets/images/thumbnail.png)](https://www.youtube.com/watch?v=oEyXLYW3RjY "Deploy your version of the Portfolio template using Netlify")
-
-### Contributions are warmly welcomed ❤️.
+## URL: bogdanzogovic.onrender.com
+## URL #2: bogdanzogovic.vercel.app
+## URL #3: bogdanzogovic.com

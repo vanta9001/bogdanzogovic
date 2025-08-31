@@ -1,0 +1,214 @@
+
+Axion Industries
+Axion-Industries
+We are a organization that creates useful websites for all sorts of people, ranging from business owners to ordinary people.
+Notable contributions
+No contributions to display
+Featured repositories
+No featured repositories
+Overall users reactions
+Axion-Industries has collected 0 reactions from other users over their last 14 comments.
+
+Starred topics
+No starred topics.
+Used languages
+Axion-Industries has used 9 different languages for a total of 754,398 bytes.
+Note that these numbers are based on results produced by LinguistJS from repositories owned by Axion-Industries and may not be entirely accurate.
+
+Jupyter Notebook (38.18%)
+288,009 bytes
+TypeScript (34.82%)
+262,716 bytes
+Python (12.71%)
+95,886 bytes
+HTML (11.83%)
+89,263 bytes
+Shell (1.25%)
+9,409 bytes
+CSS (0.85%)
+6,415 bytes
+Dockerfile (0.24%)
+1,841 bytes
+Makefile (0.09%)
+687 bytes
+JavaScript (0.02%)
+172 bytes
+Commits history
+Overall status of related issues and pull requests
+Issues opened on Axion-Industries' repositories
+ 7 open
+ 2 closed
+Pull requests opened on Axion-Industries' repositories
+ 8 open
+ 4 closed
+ 0 merged
+Issues opened by Axion-Industries
+ 7 open
+ 2 closed
+Pull requests opened by Axion-Industries
+ 0 open
+ 0 closed
+ 0 merged
+Recently starred repositories
+Axion-Industries/void-abandoned
+starred on 8/3/2025
+Void AI is a smart, all-purpose assistant built to help with writing, coding, planning, research, and creative tasks. It’s fast, intuitive, and designed to make complex things simple. Whether it’s for work, school, or just exploring ideas, Void AI keeps things easy and efficient.
+Jupyter Notebook
+MIT License
+1
+0
+9
+12
+Recent activity
+8/25/25, 7:56 AM
+Pushed 1 commits in Axion-Industries/company-template on branch main
+#d106507 Update PricingSection.tsx
+8/25/25, 7:56 AM
+Pushed 1 commits in Axion-Industries/company-template on branch main
+#04bee7d Update FeaturesSection.tsx
+8/25/25, 7:55 AM
+Pushed 1 commits in Axion-Industries/company-template on branch main
+#d3d45ce Update features.tsx
+8/25/25, 7:52 AM
+Pushed 1 commits in Axion-Industries/company-template on branch main
+#6a0efd0 Update Index.tsx
+8/25/25, 7:48 AM
+Pushed 1 commits in Axion-Industries/company-template on branch main
+#993851f Update index.html
+8/25/25, 7:48 AM
+Pushed 1 commits in Axion-Industries/company-template on branch main
+#cc8967d Rename image-removebg-preview.ico to public/favicon.ico
+8/25/25, 7:47 AM
+Pushed 1 commits in Axion-Industries/company-template on branch main
+#54e8494 Add files via upload
+8/25/25, 7:46 AM
+Pushed 1 commits in Axion-Industries/company-template on branch main
+#8e42d00 Delete public/favicon.ico
+8/25/25, 7:46 AM
+Pushed 1 commits in Axion-Industries/company-template on branch main
+#f601a83 Update index.html
+8/25/25, 7:38 AM
+Created new branch main in Axion-Industries/company-template
+8/25/25, 7:37 AM
+Created new repository in Axion-Industries/company-template
+8/23/25, 11:54 AM
+Forked friendlyhacker9001/photos25
+8/21/25, 7:56 AM
+Pushed 1 commits in Axion-Industries/meme on branch main
+#9debfd1 Update index.html
+8/21/25, 7:55 AM
+Pushed 1 commits in Axion-Industries/meme on branch main
+#691f750 Update index.html
+8/21/25, 7:54 AM
+Pushed 1 commits in Axion-Industries/meme on branch main
+#74141f2 Create styles.css
+8/21/25, 7:53 AM
+Pushed 1 commits in Axion-Industries/meme on branch main
+#a7c9593 Update index.html
+8/21/25, 7:52 AM
+Pushed 1 commits in Axion-Industries/meme on branch main
+#212bb87 Update index.html
+8/21/25, 7:44 AM
+Pushed 1 commits in Axion-Industries/meme on branch main
+#d391511 Update index.html
+8/21/25, 7:41 AM
+Pushed 1 commits in Axion-Industries/meme on branch main
+#741570f Update index.html
+8/21/25, 7:40 AM
+Pushed 1 commits in Axion-Industries/meme on branch main
+#9b05519 Update index.html
+8/21/25, 7:39 AM
+Pushed 1 commits in Axion-Industries/meme on branch main
+#6f08b37 Update index.html
+8/21/25, 7:38 AM
+Pushed 1 commits in Axion-Industries/meme on branch main
+#915fb76 Update index.html
+8/21/25, 7:36 AM
+Pushed 1 commits in Axion-Industries/meme on branch main
+#d1ccec3 Create index.html
+8/11/25, 6:49 PM
+Pushed 1 commits in Axion-Industries/meme on branch main
+#40b5da5 Add files via upload
+8/11/25, 6:42 PM
+Pushed 1 commits in Axion-Industries/meme on branch main
+#3f63e96 Add files via upload
+8/11/25, 6:38 PM
+Created new branch main in Axion-Industries/meme
+8/11/25, 6:38 PM
+Created new repository in Axion-Industries/meme
+8/11/25, 6:26 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch master
+#337b8ee Update AboutCard.js
+8/11/25, 1:42 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch master
+#ce100c9 Update About.js
+8/11/25, 1:37 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch main
+#a3b4819 Delete package.json
+8/11/25, 1:33 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch main
+#7566f82 Create package.json
+8/11/25, 1:30 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch master
+#0cf095e Update Home2.js
+8/11/25, 1:24 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch master
+#528558d Revert changes done to Home2.js
+8/11/25, 1:21 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch master
+#310d077 Update Home2.js
+8/11/25, 1:21 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch master
+#fc461fb Update Home2.js
+8/11/25, 1:19 PM
+Made Axion-Industries/bogdanzogovic public
+8/11/25, 1:15 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch master
+#da4e5a6 Update Home.js
+8/11/25, 1:14 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch master
+#591d8d6 Rename download1[1].png to public/favicon.png
+8/11/25, 1:14 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch master
+#85ad4b8 Add files via upload
+8/11/25, 1:12 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch master
+#66168d9 Rename download1[1].png to src/Assets/logo.png
+8/11/25, 1:11 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch master
+#dea39d3 Delete public/favicon.png
+8/11/25, 1:11 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch master
+#a801460 Add files via upload
+8/11/25, 1:08 PM
+Pushed 1 commits in Axion-Industries/bogdanzogovic on branch master
+#a45e6c8 Delete src/Assets/logo.png
+8/11/25, 12:22 PM
+Created new branch master in Axion-Industries/bogdanzogovic
+8/11/25, 7:31 AM
+Pushed 1 commits in Axion-Industries/mszogovic on branch main
+#9f5be39 Update index.html
+8/7/25, 2:26 PM
+Pushed 1 commits in Axion-Industries/mszogovic1 on branch main
+#cee335d Fix website styling and button functionality issues by adding missing CSS animations and correcting JavaScript
+8/7/25, 1:54 PM
+Created new branch blackboxai/fix-website-styling in Axion-Industries/mszogovic1
+8/6/25, 6:36 PM
+Pushed 1 commits in Axion-Industries/Ms-Zogovic on branch master
+#0c843cb Update README.md
+8/6/25, 6:35 PM
+Forked soumyajit4419/Portfolio
+8/4/25, 10:35 PM
+Created new repository in Axion-Industries/mszogovic
+8/4/25, 9:19 PM
+Pushed 1 commits in Axion-Industries/Void-ai on branch main
+#7c3647c Implement code changes to enhance functionality and improve performance
+8/4/25, 10:24 AM
+Pushed 2 commits in Axion-Industries/Void-ai on branch main
+#910d192 Implement code changes to enhance functionality and improve performance
+#0b3eeef Implement code changes to enhance functionality and improve performance
+8/4/25, 9:38 AM
+Pushed 1 commits in Axion-Industries/Void-ai on branch main
+#7f38d87 Update README.md
+8/3/25, 8:37 PM
+Starred Axion-Industries/Void-ai

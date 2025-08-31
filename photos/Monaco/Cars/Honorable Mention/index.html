@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Honorable Mention</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/assets/photos.css">
+  </head>
+  <body>
+    <script>document.body.classList.add(localStorage.getItem('theme')||'dark')</script>
+    <div class="menu-btn-container"><div class="container"><button type="button" class="menu-btn">menu</button></div></div>
+    <nav class="nav hidden"><ol class="nav-items"><li class="nav-item"><a href="/">Home</a></li><li class="nav-item"><a href="/photos">Photos</a></li></ol></nav>
+
+    <header class="header photos-header">
+      <div class="container">
+        <div class="header-content">
+          <h1 class="h1">Honorable Mention</h1>
+          <p class="header-text">Video files and special media.</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="container">
+        <div id="folder-page-root"></div>
+      </section>
+    </main>
+
+    <footer class="footer"><div class="container"><div class="footer-content"><p class="footer-text">&copy; <span>2025</span> - Bogdan Zogovic.</p></div></div></footer>
+
+    <script src="/assets/photos.js" defer></script>
+    <script src="/script.js" defer></script>
+  </body>
+</html>

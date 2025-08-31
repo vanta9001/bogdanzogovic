@@ -1,0 +1,15 @@
+{
+  "name": "bogdanzogovic",
+  "version": "1.0.0",
+  "description": "This README is for me — a simple place to store quick project stats, notes, and tiny reminders. Not meant as a polished public-facing doc.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "render": "^0.1.4"
+  }
+}

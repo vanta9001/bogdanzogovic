@@ -1,0 +1,23 @@
+Django
+
+Path: assets/images/testimonials/django.png
+
+Node.js
+
+Path: assets/images/testimonials/nodejs.png
+
+Vite
+
+Path: assets/images/testimonials/vite.png
+
+Flask
+
+Path: assets/images/testimonials/flask.png
+
+Next.js
+
+Path: assets/images/testimonials/nextjs.png
+
+Ruby on Rails
+
+Path: assets/images/testimonials/ruby.png

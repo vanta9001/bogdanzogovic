@@ -1,0 +1,25 @@
+{
+  "folders": [
+    { "name": "Italy" },
+    { "name": "Minnesota" },
+    { "name": "Monaco" },
+    { "name": "Montenegro" },
+    { "name": "Wallpapers" }
+  ],
+  "nested": {
+    "Italy": ["City", "Lake Como", "Milano", "Mont. Blanc", "Rome"],
+    "Rome": ["Main", "Vatican"],
+    "Monaco": [
+      "Cars",
+      "Aprilia RS660",
+      "Bugatti Chiron",
+      "Bugatti Veyron",
+      "Ferrari + Aston Martin",
+      "Ferrari 308 GTB",
+      "Ferrari 458 Pista",
+      "Ferrari 488 Pista",
+      "Ferrari Roma",
+      "Honorable Mention"
+    ]
+  }
+}

@@ -26,6 +26,19 @@ btnToggleNav.addEventListener("click", toggleNav);
 
 navMenu.addEventListener("click", (e) => {
   if (e.target.localName === "a") {
+  const href = e.target.getAttribute("href");
+  if (href?.startsWith("#")) {
+      const targetId = href.slice(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          toggleNav();
+        }, 500);
+        return;
+      }
+    }
     toggleNav();
   }
 });

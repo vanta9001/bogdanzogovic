@@ -1,0 +1,495 @@
+/* --------------------------------- */
+/* ----- GitHub Profile Dashboard Styles -----*/
+/* --------------------------------- */
+
+/* Import base variables and setup */
+@import url('../style.css');
+
+/* Profile-specific CSS custom properties */
+:root {
+  --profile-card-bg: var(--bg-color-secondary);
+  --profile-border: var(--border);
+  --profile-accent: #4f46e5;
+  --profile-success: #10b981;
+  --profile-warning: #f59e0b;
+  --profile-danger: #ef4444;
+  --profile-info: #3b82f6;
+  --github-green: #39d353;
+  --github-blue: #0969da;
+  --github-orange: #fd7e14;
+  --github-purple: #8b5cf6;
+  --profile-card-shadow: var(--shadow);
+  --profile-border-radius: 12px;
+  --profile-spacing: var(--gutter-medium);
+}
+
+/* Base layout for profile page */
+.profile-container {
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding: var(--gutter-large) var(--gutter-medium);
+  min-height: 100vh;
+}
+
+/* Profile Header */
+.profile-header {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-large);
+  margin-bottom: var(--gutter-x-large);
+  box-shadow: var(--profile-card-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-brand);
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: var(--gutter-medium);
+  margin-bottom: var(--gutter-medium);
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--profile-border);
+  background: var(--gradient-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--h2);
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.profile-details h1 {
+  font-size: var(--h1);
+  color: var(--important);
+  margin-bottom: var(--gutter-nano);
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.profile-username {
+  font-size: var(--text-large);
+  color: var(--sub);
+  margin-bottom: var(--gutter-small);
+}
+
+.profile-description {
+  font-size: var(--text-medium);
+  color: var(--body);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--gutter-medium);
+  margin-bottom: var(--gutter-x-large);
+}
+
+.stat-card {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-medium);
+  text-align: center;
+  box-shadow: var(--profile-card-shadow);
+  transition: transform 0.3s var(--easing);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-value {
+  font-size: var(--h2);
+  font-weight: 700;
+  color: var(--important);
+  margin-bottom: var(--gutter-nano);
+}
+
+.stat-label {
+  font-size: var(--text-small);
+  color: var(--sub);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Section Styles */
+.section {
+  margin-bottom: var(--gutter-x-large);
+}
+
+.section-title {
+  font-size: var(--h2);
+  color: var(--important);
+  margin-bottom: var(--gutter-medium);
+  text-align: center;
+}
+
+.section-content {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-medium);
+  box-shadow: var(--profile-card-shadow);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: var(--gutter-large);
+  color: var(--sub);
+  font-style: italic;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: var(--gutter-small);
+  opacity: 0.5;
+}
+
+/* Languages Section */
+.languages-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gutter-medium);
+}
+
+.languages-chart {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-medium);
+  box-shadow: var(--profile-card-shadow);
+}
+
+.language-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--gutter-small);
+}
+
+.language-info {
+  display: flex;
+  align-items: center;
+  gap: var(--gutter-small);
+}
+
+.language-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.language-name {
+  font-size: var(--text-small);
+  color: var(--important);
+  font-weight: 500;
+}
+
+.language-percentage {
+  font-size: var(--text-small);
+  color: var(--sub);
+  font-weight: 600;
+}
+
+.language-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--profile-border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: var(--gutter-nano);
+}
+
+.language-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s var(--easing);
+}
+
+.byte-count {
+  font-size: var(--text-small);
+  color: var(--sub);
+  margin-top: 4px;
+}
+
+.languages-summary {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-medium);
+  box-shadow: var(--profile-card-shadow);
+}
+
+/* Issues and PRs */
+.issues-prs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--gutter-medium);
+}
+
+.issue-pr-card {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-medium);
+  box-shadow: var(--profile-card-shadow);
+}
+
+.issue-pr-title {
+  font-size: var(--text-large);
+  color: var(--important);
+  margin-bottom: var(--gutter-small);
+  font-weight: 600;
+}
+
+.issue-pr-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--gutter-nano);
+}
+
+.issue-pr-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--gutter-nano);
+  font-size: var(--text-small);
+}
+
+.status-open { color: var(--github-green); }
+.status-closed { color: var(--profile-danger); }
+.status-merged { color: var(--github-purple); }
+
+/* Recent Activity */
+.activity-container {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-medium);
+  box-shadow: var(--profile-card-shadow);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gutter-small);
+  padding: var(--gutter-small);
+  border-bottom: 1px solid var(--profile-border);
+  transition: background-color 0.3s var(--easing);
+}
+
+.activity-item:hover {
+  background: var(--bg-color-primary);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.activity-message {
+  font-size: var(--text-small);
+  color: var(--important);
+  margin-bottom: 4px;
+}
+
+.activity-timestamp {
+  font-size: 12px;
+  color: var(--sub);
+}
+
+.activity-repo {
+  color: var(--github-blue);
+  text-decoration: none;
+}
+
+.activity-repo:hover {
+  text-decoration: underline;
+}
+
+.commit-hash {
+  font-family: 'Courier New', monospace;
+  background: var(--profile-border);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+/* Starred Repository */
+.starred-repo {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-medium);
+  box-shadow: var(--profile-card-shadow);
+}
+
+.starred-repo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--gutter-small);
+}
+
+.starred-repo-name {
+  font-size: var(--text-large);
+  font-weight: 600;
+  color: var(--github-blue);
+  text-decoration: none;
+}
+
+.starred-repo-name:hover {
+  text-decoration: underline;
+}
+
+.starred-date {
+  font-size: var(--text-small);
+  color: var(--sub);
+}
+
+.starred-repo-description {
+  font-size: var(--text-small);
+  color: var(--body);
+  line-height: 1.5;
+  margin-bottom: var(--gutter-small);
+}
+
+.starred-repo-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--gutter-small);
+  font-size: var(--text-small);
+  color: var(--sub);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: var(--gutter-medium) var(--gutter-small);
+  }
+  
+  .profile-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .languages-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .issues-prs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-details h1 {
+    font-size: var(--h2);
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.6s var(--easing) both;
+}
+
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+
+/* Language Colors */
+.lang-jupyter { background-color: #DA5B0B; }
+.lang-typescript { background-color: #2b7489; }
+.lang-python { background-color: #3572A5; }
+.lang-html { background-color: #e34c26; }
+.lang-shell { background-color: #89e051; }
+.lang-css { background-color: #563d7c; }
+.lang-dockerfile { background-color: #384d54; }
+.lang-makefile { background-color: #427819; }
+.lang-javascript { background-color: #f1e05a; }
+
+/* Loading states */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}

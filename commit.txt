@@ -1,0 +1,21 @@
+git add . && git commit -m"edit and finalize the minnesota page, download op
+tions, and everything related to it." && git push origin main && git status 
+
+
+
+git add . && git commit -m"edit and finalize the italy  page, download options, and everything related to it." && git push origin main && git status
+
+
+
+git add . && git commit -m"edit and finalize the monaco, download options, and everything related to it." && git push origin main && git status
+
+
+git add . && git commit -m"create the wallpaper page" && git push origin main && git status
+
+
+
+git add . && git commit -m"edit and finalize the wallpaper page, download options, and everything related to it." && git push origin main && git status
+
+
+git add . && git commit -m"edit and finalize the wallpaper page, download options, and everything related to it." && git push origin main && git status
+
