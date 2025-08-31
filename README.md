@@ -1,5 +1,5 @@
 # bogdanzogovic — personal project README 8/30/2025
-## ⚠️ This project is no longer maintained.
+## At-a-glance
 
 - Repository: `bogdanzogovic` (owner: `vanta9001`)
 - Git branch: `main`
