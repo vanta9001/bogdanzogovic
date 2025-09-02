@@ -1,90 +1,180 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Monaco</title>
-        <link rel="stylesheet" href="/style.css">
-    </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Photos — Monaco (Cars)</title>
+  <style>
+    :root{
+      --accent: #06b6d4;
+      --bg: #000;
+      --card-bg: rgba(0,0,0,0.45);
+      --muted: rgba(255,255,255,0.75);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
 
-    <body>
-        <script>
-            const theme = localStorage.getItem("theme") || "dark";
-            document.body.classList.add(theme);
-        </script>
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:#fff}
+    a{color:var(--accent);text-decoration:none}
+    a:focus{outline:3px solid rgba(6,182,212,0.18);outline-offset:3px}
 
-        <div class="menu-btn-container">
-            <div class="container">
-                <button type="button" class="menu-btn">menu</button>
-            </div>
+    .wrap{
+      min-height:100dvh;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:36px 20px;
+    }
+
+    .panel{
+      width:100%;
+      max-width:1100px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;
+      padding:22px;
+      box-shadow:0 10px 40px rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+    }
+
+    header h1{
+      margin:0 0 6px;
+      font-size:clamp(20px,3.6vw,30px);
+      letter-spacing:-0.01em;
+    }
+    header p{margin:0 0 18px;color:var(--muted)}
+
+    /* folder tree */
+    .folders{
+      display:flex;
+      gap:22px;
+      flex-wrap:wrap;
+      margin-bottom:22px;
+    }
+    .folder{
+      background:var(--card-bg);
+      padding:12px 14px;
+      border-radius:10px;
+      min-width:200px;
+      flex:1 1 220px;
+    }
+    .folder h3{margin:0 0 8px;font-size:16px}
+    .folder ol{margin:0;padding:0 0 0 18px;color:var(--muted)}
+    .folder li{margin:6px 0;list-style:disc}
+
+    /* video area */
+    .videos {
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      margin-top:10px;
+    }
+    @media (max-width:820px){ .videos{ grid-template-columns: 1fr } }
+
+    .video-card{
+      background:rgba(255,255,255,0.02);
+      padding:12px;
+      border-radius:10px;
+    }
+    .video-card h4{margin:0 0 8px;font-size:15px}
+    .video-card video{width:100%;height:auto;border-radius:6px;background:#000;display:block}
+
+    .help{margin-top:12px;color:var(--muted);font-size:13px}
+    .btn{
+      display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#042b31;font-weight:700;margin-top:10px;text-decoration:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel" role="main" aria-labelledby="title">
+      <header>
+        <h1 id="title">Photos — Monaco / Cars</h1>
+        <p class="lead">Folder tree (folders only). Click a folder name to open its index.html (if present).</p>
+      </header>
+
+      <!-- Folder structure (folders only, per request). Paths are URL-encoded for spaces and special chars. -->
+      <section class="folders" aria-label="Folder tree">
+        <div class="folder" aria-labelledby="f-root">
+          <h3 id="f-root">Root</h3>
+          <ol>
+            <li><a href="/photos/Monaco/">/photos/Monaco/</a></li>
+            <li><a href="/photos/Monaco/Cars/">/photos/Monaco/Cars/</a></li>
+          </ol>
         </div>
 
-        <nav class="nav hidden">
-            <ol class="nav-items">
-                <li class="nav-item"><a href="/">Home</a></li>
-                <li class="nav-item"><a href="/photos">Photos</a></li>
-                <li class="nav-item"><a href="/#work">My Work</a></li>
-                <li class="nav-item"><a href="/#about-me">About</a></li>
-                <li class="nav-item"><a href="/#skills">My Skills</a></li>
-                <li class="nav-item">
-                    <a href="/#contact" data-focused="last-focused">Contact</a>
-                </li>
-            </ol>
-        </nav>
+        <div class="folder" aria-labelledby="f-cars">
+          <h3 id="f-cars">Cars (subfolders)</h3>
+          <ol>
+            <li><a href="/photos/Monaco/Cars/Aprilia%20RS660/">Aprilia RS660</a></li>
+            <li><a href="/photos/Monaco/Cars/Bugatti%20Chiron/">Bugatti Chiron</a></li>
+            <li><a href="/photos/Monaco/Cars/Bugatti%20Veyron/">Bugatti Veyron</a></li>
+            <li><a href="/photos/Monaco/Cars/Ferrari%20%2B%20Aston%20Martin/">Ferrari + Aston Martin</a></li>
+            <li><a href="/photos/Monaco/Cars/Ferrari%20308%20GTB/">Ferrari 308 GTB</a></li>
+            <li><a href="/photos/Monaco/Cars/Ferrari%20458%20Pista/">Ferrari 458 Pista</a></li>
+            <li><a href="/photos/Monaco/Cars/Ferrari%20488%20Pista/">Ferrari 488 Pista</a></li>
+            <li><a href="/photos/Monaco/Cars/Ferrari%20Roma/">Ferrari Roma</a></li>
+            <li><a href="/photos/Monaco/Cars/Honorable%20Mention/">Honorable Mention</a></li>
+          </ol>
+        </div>
 
-        <header class="header photos-header">
-            <div class="container">
-                <div class="header-content">
-                    <h1 class="h1">Monaco</h1>
-                    <p class="header-text">This is a placeholder page for the Monaco folder.</p>
-                </div>
-            </div>
-        </header>
+        <div class="folder" aria-labelledby="f-meta">
+          <h3 id="f-meta">Other</h3>
+          <ol>
+            <li><a href="/photos/Monaco/Cars/index.html">/photos/Monaco/Cars/index.html</a></li>
+            <li><a href="/photos/Monaco/Cars/index.json">/photos/Monaco/Cars/index.json</a></li>
+          </ol>
+        </div>
+      </section>
 
-        <main>
-            <section class="container">
-                <p>Welcome to the Monaco Page — gallery content will go here.</p>
-            </section>
-        </main>
+      <!-- Video player area for the two MOV files located in Honorable Mention -->
+      <section aria-labelledby="vids-title">
+        <h2 id="vids-title" style="font-size:16px;margin:0 0 10px">Honorable Mention — Videos</h2>
+        <p class="help">The two MOV files live in: <code>/photos/Monaco/Cars/Honorable Mention/</code>. If this page is being served from a different base, update the URLs accordingly.</p>
 
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <nav>
-                        <ol class="footer-links">
-                            <li class="footer-link">
-                                <a title="GitHub" href="https://github.com/Axion-Industries" target="_blank" rel="noopener">
-                                    <img loading="lazy" src="/assets/images/social-links/github.svg" alt="GitHub" />
-                                </a>
-                            </li>
-                            <li class="footer-link">
-                                <a title="GitLab" href="https://gitlab.com/Axion-Industries" target="_blank" rel="noopener">
-                                    <img loading="lazy" src="/assets/images/social-links/gitlab.svg" alt="GitLab" />
-                                </a>
-                            </li>
-                            <li class="footer-link">
-                                <a title="Instagram" href="https://www.instagram.com/@bogdanzogovic123" target="_blank" rel="noopener">
-                                    <img loading="lazy" src="/assets/images/social-links/instagram.svg" alt="Instagram" />
-                                </a>
-                            </li>
-                            <li class="footer-link">
-                                <a title="Threads" href="https://www.threads.com/@bogdanzogovic123" target="_blank" rel="noopener">
-                                    <img loading="lazy" src="/assets/images/social-links/threads.svg" alt="Threads" />
-                                </a>
-                            </li>
-                        </ol>
-                    </nav>
-                    <p class="footer-text">
-                        &copy; <span>2025</span> - Portfolio by <a target="_blank" rel="noopener" href="https://github.com/Axion-Industries">Bogdan Zogovic.</a>
-                    </p>
-                    <label class="theme-switch" for="theme-switch">
-                        <span>Dark Theme</span>
-                        <input type="checkbox" id="theme-switch" role="switch" />
-                    </label>
-                </div>
-            </div>
-        </footer>
+        <div class="videos" role="region" aria-label="Video players">
+          <!-- Video 1 -->
+          <div class="video-card">
+            <h4>MVI_2885.MOV</h4>
+            <!-- Primary player: uses the MOV file directly. Many browsers support .mov (QuickTime) but if your server can provide MP4/WebM transcodes, add them as additional <source>. -->
+            <video controls preload="metadata" playsinline aria-label="MVI_2885">
+              <source src="/photos/Monaco/Cars/Honorable%20Mention/MVI_2885.MOV" type="video/quicktime" />
+              <!-- fallback download link -->
+              <p style="color:var(--muted);font-size:14px">
+                Your browser doesn't support inline playback of this video. <a class="btn" href="/photos/Monaco/Cars/Honorable%20Mention/MVI_2885.MOV" download>Download MVI_2885.MOV</a>
+              </p>
+            </video>
+            <p style="margin-top:8px;color:var(--muted);font-size:13px">Tip: click the built-in controls to play, enter fullscreen, or download.</p>
+          </div>
 
-        <script src="/script.js" defer></script>
-    </body>
+          <!-- Video 2 -->
+          <div class="video-card">
+            <h4>MVI_3435.MOV</h4>
+            <video controls preload="metadata" playsinline aria-label="MVI_3435">
+              <source src="/photos/Monaco/Cars/Honorable%20Mention/MVI_3435.MOV" type="video/quicktime" />
+              <p style="color:var(--muted);font-size:14px">
+                Your browser doesn't support inline playback of this video. <a class="btn" href="/photos/Monaco/Cars/Honorable%20Mention/MVI_3435.MOV" download>Download MVI_3435.MOV</a>
+              </p>
+            </video>
+            <p style="margin-top:8px;color:var(--muted);font-size:13px">If playback fails, try downloading and opening the file in a native player (QuickTime, VLC).</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script>
+    // small enhancement: try to request inline playback permission on iOS Safari
+    (function tryAutoplayPermission() {
+      const vids = document.querySelectorAll('video');
+      if (!vids.length) return;
+      vids.forEach(v => {
+        v.addEventListener('click', () => {
+          // user gesture - attempt to play if paused (no harm)
+          if (v.paused) v.play().catch(()=>{/* ignore */});
+        });
+      });
+    })();
+  </script>
+</body>
 </html>

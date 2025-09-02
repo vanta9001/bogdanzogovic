@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>401 — Unauthorized</title>
+  <style>
+    :root{
+      --accent: #06b6d4;
+      --btn-text: #042b31;
+      --bg-dark: rgba(0,0,0,0.45);
+      --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* Reset + layout */
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:var(--font);-webkit-font-smoothing:antialiased}
+    body{
+      background:#000;
+      color:#fff;
+      min-height:100dvh; /* use dynamic viewport where supported */
+      overflow:hidden;
+      -webkit-overflow-scrolling:touch;
+    }
+
+    /* Fullscreen image as background */
+    .bg-img{
+      position:fixed;
+      inset:0; /* top:0; right:0; bottom:0; left:0 */
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      display:block;
+      z-index:0;
+    }
+
+    /* Dim overlay and centering */
+    .overlay{
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:24px;
+      z-index:1;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.45));
+    }
+
+    .card{
+      max-width:980px;
+      width:100%;
+      background:transparent;
+      border-radius:14px;
+      padding:18px;
+      color: #fff;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(20px,4.5vw,36px);
+      line-height:1.05;
+      text-shadow:0 6px 18px rgba(0,0,0,0.6);
+    }
+
+    p.lead{
+      margin:0 0 20px;
+      font-size:clamp(14px,2.2vw,16px);
+      color:rgba(255,255,255,0.92);
+    }
+
+    /* Button */
+    .btn{
+      -webkit-tap-highlight-color: transparent;
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      padding:12px 20px;
+      border-radius:12px;
+      background:var(--accent);
+      color:var(--btn-text);
+      font-weight:700;
+      font-size:16px;
+      text-decoration:none;
+      border:0;
+      cursor:pointer;
+      box-shadow: 0 6px 18px rgba(6,182,212,0.12);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .btn:hover{ transform:translateY(-3px); }
+    .btn:active{ transform:translateY(-1px); }
+    .btn:focus{
+      outline:3px solid rgba(6,182,212,0.28);
+      outline-offset:3px;
+    }
+
+    /* Fallback small-screen layout tweaks */
+    @media (max-width:520px){
+      .card{ padding:14px }
+      .btn{ width:100%; justify-content:center; padding:14px }
+    }
+
+    /* Accessibility: ensure links are visible when high-contrast forced */
+    a{ color:inherit }
+  </style>
+</head>
+<body>
+  <!-- Fullscreen PNG background (cover) -->
+  <img
+    class="bg-img"
+    src="assets/errors/401.png"
+    alt="Unauthorized — access denied illustration"
+    width="1920" height="1080"
+    decoding="async" loading="eager"
+  />
+
+  <main class="overlay" role="main" aria-labelledby="error-title">
+    <div class="card" role="region" aria-label="Unauthorized error information">
+      <h1 id="error-title">Unauthorized (401) — Access denied</h1>
+      <p class="lead">You don’t have permission to view that page. If you think this is a mistake, try going back to the homepage.</p>
+
+      <!-- Primary action: anchor behaves like a button and is keyboard focusable -->
+      <p>
+        <a class="btn" href="/home" role="button" aria-label="Take me back to home">
+          <!-- small inline icon (arrow) so no external assets required -->
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:block">
+            <path fill="currentColor" d="M10.5 6.5L9.08 7.92 12.16 11H4v2h8.16l-3.08 3.08L10.5 18.5l5.5-5.5z"></path>
+          </svg>
+          Take me back
+        </a>
+      </p>
+      <p style="margin-top:12px; color:rgba(255,255,255,0.7); font-size:13px">
+        If the button doesn't work, try <a href="/home" style="text-decoration:underline">going to the homepage</a>.
+      </p>
+    </div>
+  </main>
+
+  <noscript>
+    <div style="position:fixed;left:12px;bottom:12px;background:rgba(0,0,0,0.6);color:#fff;padding:8px 10px;border-radius:8px;z-index:2;font-size:13px">
+      JavaScript is disabled — use the <a href="/home" style="color:var(--accent)">homepage link</a>.
+    </div>
+  </noscript>
+</body>
+</html>

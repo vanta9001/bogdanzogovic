@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>500 — Server Error</title>
+  <style>
+    :root {
+      --accent: #06b6d4;
+      --btn-text: #042b31;
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #000;
+      overflow: hidden;
+    }
+    .container {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+    .bg {
+      position: absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      object-fit: cover;
+    }
+    .overlay {
+      position: absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      background: rgba(0,0,0,0.4);
+      text-align:center;
+      padding: 20px;
+    }
+    h1 {
+      color:#fff;
+      font-size: clamp(22px, 5vw, 36px);
+      margin-bottom: 16px;
+      text-shadow: 0 2px 6px rgba(0,0,0,.8);
+    }
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:12px;
+      background: var(--accent);
+      color: var(--btn-text);
+      font-weight:700;
+      text-decoration:none;
+      font-size: 16px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover {
+      background: #0891b2;
+      transform: translateY(-2px);
+    }
+    .btn:focus {
+      outline: 3px solid rgba(6,182,212,.35);
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="bg" src="assets/errors/500.gif" alt="Server error illustration" width="1920" height="1080" decoding="async" loading="eager">
+    <div class="overlay" role="main" aria-labelledby="page-title">
+      <h1 id="page-title">Oops — Something went wrong on our end (500)</h1>
+      <a class="btn" href="/home" role="button" aria-label="Take me back to home">Take me back</a>
+    </div>
+  </div>
+
+  <noscript>
+    <div style="position:fixed;bottom:8px;left:8px;background:#000a;color:#fff;padding:8px 12px;border-radius:6px;">
+      JavaScript is disabled — use the <a href="/home" style="color:#06b6d4">homepage link</a>.
+    </div>
+  </noscript>
+</body>
+</html>
