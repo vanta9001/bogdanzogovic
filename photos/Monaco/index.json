@@ -1,5 +1,14 @@
 {
   "folders": [
-    {"name": "Cars"}
+    { "name": "Cars", "path": "./" },
+    { "name": "Aprilia RS660", "path": "./Aprilia RS660" },
+    { "name": "Bugatti Chiron", "path": "./Bugatti Chiron" },
+    { "name": "Bugatti Veyron", "path": "./Bugatti Veyron" },
+    { "name": "Ferrari + Aston Martin", "path": "./Ferrari + Aston Martin" },
+    { "name": "Ferrari 308 GTB", "path": "./Ferrari 308 GTB" },
+    { "name": "Ferrari 458 Pista", "path": "./Ferrari 458 Pista" },
+    { "name": "Ferrari 488 Pista", "path": "./Ferrari 488 Pista" },
+    { "name": "Ferrari Roma", "path": "./Ferrari Roma" },
+    { "name": "Honorable Mention", "path": "./Honorable Mention" }
   ]
 }
