@@ -1221,26 +1221,45 @@
                     <p class="footer-text">
                         &copy; <span>2025</span> - Portfolio by <a target="_blank" rel="noopener" href="https://github.com/Axion-Industries">Bogdan Zogovic.</a>
                     </p>
+                    <!-- Dark Mode Toggle -->
+                    <label class="theme-switch">
+                        <span>Dark Mode</span>
+                        <input type="checkbox" id="theme-toggle" role="switch" />
+                    </label>
                 </div>
             </div>
         </footer>
     </div>
 
     <script src="/assets/photos.js" defer></script>
-    <script src="/script.js" defer></script>
+    <script src="/assets/script.js" defer></script>
     <script>
         // Menu toggle functionality
         const menuBtn = document.getElementById('menu-btn');
+        const nav = document.querySelector('.nav'); // Ensure you have a nav element to toggle
         let menuOpen = false;
 
         menuBtn.addEventListener('click', () => {
             menuOpen = !menuOpen;
-            if (menuOpen) {
-                // Add class to open menu
-                menuBtn.classList.add('open');
+            nav.classList.toggle('hidden', !menuOpen);
+            menuBtn.classList.toggle('open', menuOpen);
+        });
+
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const storedTheme = localStorage.getItem('theme');
+
+        themeToggle.checked = storedTheme === 'dark';
+
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
+                document.body.classList.add('dark');
+                document.body.classList.remove('light');
+                localStorage.setItem('theme', 'dark');
             } else {
-                // Remove class to close menu
-                menuBtn.classList.remove('open');
+                document.body.classList.remove('dark');
+                document.body.classList.add('light');
+                localStorage.setItem('theme', 'light');
             }
         });
     </script>

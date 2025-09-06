@@ -3,6 +3,10 @@
     top: 20px;
     right: 20px;
     z-index: 10;
+.nav {
+    overflow: hidden; /* Prevents overflow during transition */
+    max-height: 0; /* Start hidden */
+    transition: max-height 0.5s ease-in-out; /* Smooth transition */
 }
 
 .menu-btn {
@@ -13,6 +17,8 @@
     padding: 10px 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+.nav.hidden {
+    display: none; /* Hide the nav when not in use */
 }
 
 .menu-btn:hover {
@@ -51,3 +57,4 @@
         flex-direction: column;
     }
 }
+".menu-btn-container {\n    position: fixed;\n    top: 20px;\n    right: 20px;\n    z-index: 10;\n}\n\n.menu-btn {\n    background-color: var(--profile-accent);\n    color: white;\n    border: none;\n    border-radius: 5px;\n    padding: 10px 15px;\n    cursor: pointer;\n    transition: background-color 0.3s ease;\n}\n\n.menu-btn:hover {\n    background-color: var(--profile-success);\n}\n\n.menu-btn.open {\n    background-color: var(--profile-danger);\n}\n\n/* Footer Styles */\n.footer {\n    background-color: var(--bg-color-secondary);\n    padding: var(--gutter-large) 0;\n    text-align: center;\n}\n\n.footer-links {\n    list-style: none;\n    padding: 0;\n}\n\n.footer-link {\n    display: inline-block;\n    margin: 0 10px;\n}\n\n.footer-text {\n    margin-top: 10px;\n    color: var(--sub);\n}\n\n/* Responsive Design for Footer */\n@media (max-width: 768px) {\n    .footer-links {\n        flex-direction: column;\n    }\n}\n"
