@@ -28,7 +28,6 @@
       "permanent": true
     },
 
-    /* --- Monaco --- */
     {
       "source": "/photos/monaco",
       "destination": "/photos/Monaco/",
@@ -40,7 +39,6 @@
       "permanent": true
     },
 
-    /* --- Minnesota --- */
     {
       "source": "/photos/minnesota",
       "destination": "/photos/Minnesota/",
@@ -52,7 +50,6 @@
       "permanent": true
     },
 
-    /* --- Italy --- */
     {
       "source": "/photos/italy",
       "destination": "/photos/Italy/",
@@ -64,7 +61,6 @@
       "permanent": true
     },
 
-    /* --- Montenegro --- */
     {
       "source": "/photos/montenegro",
       "destination": "/photos/Montenegro/",
@@ -76,7 +72,6 @@
       "permanent": true
     },
 
-    /* --- Wallpapers --- */
     {
       "source": "/photos/wallpapers",
       "destination": "/photos/Wallpapers/",
