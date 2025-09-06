@@ -1,0 +1,53 @@
+.menu-btn-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.menu-btn {
+    background-color: var(--profile-accent);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-btn:hover {
+    background-color: var(--profile-success);
+}
+
+.menu-btn.open {
+    background-color: var(--profile-danger);
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--bg-color-secondary);
+    padding: var(--gutter-large) 0;
+    text-align: center;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-link {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer-text {
+    margin-top: 10px;
+    color: var(--sub);
+}
+
+/* Responsive Design for Footer */
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+    }
+}
