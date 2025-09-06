@@ -30,7 +30,7 @@
 
     {
       "source": "/photos/monaco",
-      "destination": "/photos/Monaco",
+      "destination": "/photos/Monaco/",
       "permanent": true
     },
     {
