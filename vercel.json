@@ -9,48 +9,82 @@
   "redirects": [
     {
       "source": "/metrics",
-      "destination": "/stats",
+      "destination": "/stats/",
       "permanent": true
     },
     {
       "source": "/stats",
-      "destination": "/stats",
+      "destination": "/stats/",
       "permanent": true
     },
     {
       "source": "/pages/stats",
-      "destination": "/stats",
+      "destination": "/stats/",
       "permanent": true
     },
     {
       "source": "/pages/home",
-      "destination": "/home",
+      "destination": "/home/",
       "permanent": true
     },
 
+    /* --- Monaco --- */
     {
       "source": "/photos/monaco",
       "destination": "/photos/Monaco/",
       "permanent": true
     },
     {
-      "source": "/photos/minnesota",
-      "destination": "/photos/Minnesota",
+      "source": "/photos/Monaco",
+      "destination": "/photos/Monaco/",
       "permanent": true
     },
+
+    /* --- Minnesota --- */
+    {
+      "source": "/photos/minnesota",
+      "destination": "/photos/Minnesota/",
+      "permanent": true
+    },
+    {
+      "source": "/photos/Minnesota",
+      "destination": "/photos/Minnesota/",
+      "permanent": true
+    },
+
+    /* --- Italy --- */
     {
       "source": "/photos/italy",
-      "destination": "/photos/Italy",
+      "destination": "/photos/Italy/",
       "permanent": true
     },
+    {
+      "source": "/photos/Italy",
+      "destination": "/photos/Italy/",
+      "permanent": true
+    },
+
+    /* --- Montenegro --- */
     {
       "source": "/photos/montenegro",
-      "destination": "/photos/Montenegro",
+      "destination": "/photos/Montenegro/",
       "permanent": true
     },
     {
+      "source": "/photos/Montenegro",
+      "destination": "/photos/Montenegro/",
+      "permanent": true
+    },
+
+    /* --- Wallpapers --- */
+    {
       "source": "/photos/wallpapers",
-      "destination": "/photos/Wallpapers",
+      "destination": "/photos/Wallpapers/",
+      "permanent": true
+    },
+    {
+      "source": "/photos/Wallpapers",
+      "destination": "/photos/Wallpapers/",
       "permanent": true
     }
   ],
