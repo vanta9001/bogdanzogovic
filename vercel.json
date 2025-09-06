@@ -13,8 +13,8 @@
       "permanent": true
     },
     {
-      "source": "/stats",
-      "destination": "/stats",
+      "source": "/photos/monaco",
+      "destination": "/photos/Monaco",
       "permanent": true
     },
     {
