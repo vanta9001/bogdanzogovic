@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axion-Industries - GitHub Profile</title>
+    
+    <!-- Link to the custom profile styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Inlined contents of styles.css -->
+    <style>
+/* --------------------------------- */
+/* ----- GitHub Profile Dashboard Styles -----*/
+/* --------------------------------- */
+
+/* Import base variables and setup */
+@import url('../style.css');
+
+/* Profile-specific CSS custom properties */
+:root {
+  --profile-card-bg: var(--bg-color-secondary);
+  --profile-border: var(--border);
+  --profile-accent: #4f46e5;
+  --profile-success: #10b981;
+  --profile-warning: #f59e0b;
+  --profile-danger: #ef4444;
+  --profile-info: #3b82f6;
+  --github-green: #39d353;
+  --github-blue: #0969da;
+  --github-orange: #fd7e14;
+  --github-purple: #8b5cf6;
+  --profile-card-shadow: var(--shadow);
+  --profile-border-radius: 12px;
+  --profile-spacing: var(--gutter-medium);
+}
+
+/* Base layout for profile page */
+.profile-container {
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding: var(--gutter-large) var(--gutter-medium);
+  min-height: 100vh;
+}
+
+/* Profile Header */
+.profile-header {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-large);
+  margin-bottom: var(--gutter-x-large);
+  box-shadow: var(--profile-card-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-brand);
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: var(--gutter-medium);
+  margin-bottom: var(--gutter-medium);
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--profile-border);
+  background: var(--gradient-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--h2);
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.profile-details h1 {
+  font-size: var(--h1);
+  color: var(--important);
+  margin-bottom: var(--gutter-nano);
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.profile-username {
+  font-size: var(--text-large);
+  color: var(--sub);
+  margin-bottom: var(--gutter-small);
+}
+
+.profile-description {
+  font-size: var(--text-medium);
+  color: var(--body);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--gutter-medium);
+  margin-bottom: var(--gutter-x-large);
+}
+
+.stat-card {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-medium);
+  text-align: center;
+  box-shadow: var(--profile-card-shadow);
+  transition: transform 0.3s var(--easing);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-value {
+  font-size: var(--h2);
+  font-weight: 700;
+  color: var(--important);
+  margin-bottom: var(--gutter-nano);
+}
+
+.stat-label {
+  font-size: var(--text-small);
+  color: var(--sub);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Section Styles */
+.section {
+  margin-bottom: var(--gutter-x-large);
+}
+
+.section-title {
+  font-size: var(--h2);
+  color: var(--important);
+  margin-bottom: var(--gutter-medium);
+  text-align: center;
+}
+
+.section-content {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-medium);
+  box-shadow: var(--profile-card-shadow);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: var(--gutter-large);
+  color: var(--sub);
+  font-style: italic;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: var(--gutter-small);
+  opacity: 0.5;
+}
+
+/* Languages Section */
+.languages-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gutter-medium);
+}
+
+.languages-chart {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-medium);
+  box-shadow: var(--profile-card-shadow);
+}
+
+.language-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--gutter-small);
+}
+
+.language-info {
+  display: flex;
+  align-items: center;
+  gap: var(--gutter-small);
+}
+
+.language-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.language-name {
+  font-size: var(--text-small);
+  color: var(--important);
+  font-weight: 500;
+}
+
+.language-percentage {
+  font-size: var(--text-small);
+  color: var(--sub);
+  font-weight: 600;
+}
+
+.language-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--profile-border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: var(--gutter-nano);
+}
+
+.language-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s var(--easing);
+}
+
+.byte-count {
+  font-size: var(--text-small);
+  color: var(--sub);
+  margin-top: 4px;
+}
+
+.languages-summary {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-medium);
+  box-shadow: var(--profile-card-shadow);
+}
+
+/* Issues and PRs */
+.issues-prs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--gutter-medium);
+}
+
+.issue-pr-card {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-medium);
+  box-shadow: var(--profile-card-shadow);
+}
+
+.issue-pr-title {
+  font-size: var(--text-large);
+  color: var(--important);
+  margin-bottom: var(--gutter-small);
+  font-weight: 600;
+}
+
+.issue-pr-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--gutter-nano);
+}
+
+.issue-pr-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--gutter-nano);
+  font-size: var(--text-small);
+}
+
+.status-open { color: var(--github-green); }
+.status-closed { color: var(--profile-danger); }
+.status-merged { color: var(--github-purple); }
+
+/* Recent Activity */
+.activity-container {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-medium);
+  box-shadow: var(--profile-card-shadow);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gutter-small);
+  padding: var(--gutter-small);
+  border-bottom: 1px solid var(--profile-border);
+  transition: background-color 0.3s var(--easing);
+}
+
+.activity-item:hover {
+  background: var(--bg-color-primary);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.activity-message {
+  font-size: var(--text-small);
+  color: var(--important);
+  margin-bottom: 4px;
+}
+
+.activity-timestamp {
+  font-size: 12px;
+  color: var(--sub);
+}
+
+.activity-repo {
+  color: var(--github-blue);
+  text-decoration: none;
+}
+
+.activity-repo:hover {
+  text-decoration: underline;
+}
+
+.commit-hash {
+  font-family: 'Courier New', monospace;
+  background: var(--profile-border);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+/* Starred Repository */
+.starred-repo {
+  background: var(--profile-card-bg);
+  border: 1px solid var(--profile-border);
+  border-radius: var(--profile-border-radius);
+  padding: var(--gutter-medium);
+  box-shadow: var(--profile-card-shadow);
+}
+
+.starred-repo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--gutter-small);
+}
+
+.starred-repo-name {
+  font-size: var(--text-large);
+  font-weight: 600;
+  color: var(--github-blue);
+  text-decoration: none;
+}
+
+.starred-repo-name:hover {
+  text-decoration: underline;
+}
+
+.starred-date {
+  font-size: var(--text-small);
+  color: var(--sub);
+}
+
+.starred-repo-description {
+  font-size: var(--text-small);
+  color: var(--body);
+  line-height: 1.5;
+  margin-bottom: var(--gutter-small);
+}
+
+.starred-repo-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--gutter-small);
+  font-size: var(--text-small);
+  color: var(--sub);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: var(--gutter-medium) var(--gutter-small);
+  }
+  
+  .profile-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .languages-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .issues-prs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-details h1 {
+    font-size: var(--h2);
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.6s var(--easing) both;
+}
+
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+
+/* Language Colors */
+.lang-jupyter { background-color: #DA5B0B; }
+.lang-typescript { background-color: #2b7489; }
+.lang-python { background-color: #3572A5; }
+.lang-html { background-color: #e34c26; }
+.lang-shell { background-color: #89e051; }
+.lang-css { background-color: #563d7c; }
+.lang-dockerfile { background-color: #384d54; }
+.lang-makefile { background-color: #427819; }
+.lang-javascript { background-color: #f1e05a; }
+
+/* Loading states */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+    </style>
+
+    <!-- Inlined contents of style_v=3.34.css -->
+    <style>
+/* Contributions */
+  .contributions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .contribution {
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    margin: .25rem;
+    padding: .25rem .5rem;
+    padding-left: .25rem;
+    color: var(--color-text-primary) !important;
+    border: 1px solid var(--color-border-primary);
+  }
+
+  .contribution img {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: .5rem;
+    border-radius: 6px;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 1px var(--color-avatar-border);
+  }
+
+/** Progress bars */
+  .progress-bars {
+    display: flex;
+    margin: .5rem 0;
+  }
+  .progress {
+    height: 8px;
+    border-radius: 6px;
+    outline: 1px solid transparent;
+  }
+  .progress:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .progress:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .legend {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .legend > * {
+    margin: 0 1rem;
+  }
+
+/* Languages */
+  .languages .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .languages .language {
+    width: 100%;
+    margin: 0 0 .5rem;
+  }
+  .languages .language .progress {
+    border-radius: 6px;
+  }
+  .languages .percent {
+    font-size: .8rem;
+  }
+  .languages .size {
+    display: flex;
+    font-size: .8rem;
+    color: var(--color-text-secondary);
+  }
+
+/* Topics */
+  .topics .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .topic {
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    margin: .25rem;
+    padding: .25rem .5rem;
+    padding-left: .25rem;
+    color: var(--color-text-primary) !important;
+    border: 1px solid var(--color-border-primary);
+  }
+  .topic img {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: .5rem;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+
+/* Followup */
+  .followup {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .followup .followup-section {
+    width: 100%;
+    margin-bottom: .5rem;
+  }
+
+/* Isocalendar  and calendar */
+  .isocalendar .svg {
+    margin-top: 8rem;
+  }
+  .calendar rect:hover {
+    cursor: pointer;
+    filter: brightness(4);
+  }
+
+/* Activity */
+  .activity {
+    max-width: 90vw;
+  }
+  .activity > ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+  .activity > ul > li {
+    margin: 0 0 1rem;
+  }
+  .activity time {
+    font-size: .8rem;
+    color: var(--color-text-secondary);
+  }
+  .activity svg {
+    fill: var(--color-text-primary);
+    flex-shrink: 0;
+    margin: .25rem 0;
+    margin-right: .5rem;
+  }
+  .activity .actor {
+    display: flex;
+    align-items: center;
+  }
+  .activity .actor img {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    margin-right: .5rem;
+  }
+  .activity .event {
+    display: flex;
+    align-items: flex-start;
+  }
+  .activity .event ul {
+    font-size: .8rem;
+  }
+  .activity .content {
+    flex-grow: 1;
+    max-width: 95%;
+  }
+  .activity quote {
+    display: block;
+    margin: .5rem 0;
+    padding: 1rem;
+    border-radius: .25rem;
+    border: 1px solid var(--color-border-secondary);
+    color: var(--color-text-secondary);
+    overflow-x: auto;
+  }
+
+/* Markdown */
+  .markdown p:first-child {
+    margin-top: 0;
+  }
+  .markdown p:last-child {
+    margin-bottom: 0;
+  }
+  .markdown p {
+    white-space: pre-wrap;
+  }
+  .markdown h1, .activity quote h2 {
+    border-bottom: 1px solid var(--color-markdown-frame-border);
+  }
+  .markdown blockquote {
+    margin: 0;
+    margin-bottom: 1rem;
+    padding: 0 .9rem;
+    border-left: .25rem solid var(--color-markdown-blockquote-border);
+  }
+  .markdown code {
+    background-color: var(--color-markdown-code-bg);
+    border-radius: .25rem;
+    padding: .125rem .25rem;
+    font-size: .9rem;
+  }
+  .markdown code[class^="language-"] {
+    display: block;
+    padding: 1rem;
+  }
+  .markdown ul {
+    margin-left: 0;
+    padding-left: 1rem;
+    font-size: 1rem !important;
+  }
+  .markdown input {
+    pointer-events: none
+  }
+  .markdown img {
+    max-width: 100%;
+  }
+
+/* User */
+  .user {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  .user img {
+    border-radius: 50%;
+    height: 4.5rem;
+    width: 4.5rem;
+    margin: 0 1rem;
+  }
+  .user .info {
+    display: flex;
+    flex-direction: column;
+  }
+  .user .name {
+    font-size: 2rem;
+  }
+  .user .login {
+    font-size: 1.25rem;
+  }
+
+/* Sponsors */
+  .goal {
+    background-color: var(--color-markdown-code-bg);
+    border-radius: .25rem;
+    display: block;
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+  }
+  .goal p {
+    margin: 0 0 .5rem;
+  }
+  .goal .progress-wrap {
+    background-color: var(--color-markdown-table-tr-border);
+    height: 8px;
+    border-radius: 6px;
+  }
+  .goal .objective {
+    text-align: right;
+    font-style: italic;
+    font-size: .8rem;
+  }
+  .goal .sponsors-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  img.avatar {
+    height: 2rem;
+    width: 2rem;
+    margin-right: .5rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 1px var(--color-avatar-border);
+  }
+
+/* Ranked achievements */
+  .rankeds {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .ranked {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .ranked .text {
+    min-height: 2rem;
+  }
+  .ranked .icon {
+    transform: scale(1.75);
+  }
+  .ranked .info {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .ranked .title {
+    font-size: 1.5rem;
+    margin-top: .5rem;
+  }
+  .user-rank {
+    font-size: 1.5rem;
+  }
+  .total-rank {
+    opacity: .75;
+  }
+
+/* Achievements */
+  .achievements {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .achievement {
+    display: flex;
+    margin: .5rem;
+    max-width: 18rem;
+    width: 100%;
+  }
+
+/* Reactions */
+  .reactions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .reactions > div {
+    margin: 1.5rem;
+  }
+
+  .reactions .text {
+    text-align: center;
+    white-space: nowrap;
+  }
+
+/* Repository */
+  .repositories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .repository {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: .5rem;
+    max-width: 90vw;
+    border-radius: .25rem;
+    border: 1px solid var(--color-border-primary);
+    padding: .5rem .5rem 0;
+  }
+
+  .repository .field {
+    display: flex;
+    align-items: center;
+    margin-bottom: .5rem;
+  }
+  .repository .field.infos {
+    flex-wrap: wrap;
+  }
+  .repository svg {
+    fill: currentColor;
+  }
+  .repository .infos, .repository .description {
+    font-size: .8rem;
+  }
+
+  .repository .name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: .25rem;
+    flex-grow: 1;
+  }
+
+  .repository .name span:first-child {
+    color: var(--color-text-link);
+  }
+
+  .repository .name span:last-child {
+    color: var(--color-text-secondary);
+    font-size: .7rem;
+  }
+
+  .repository .infos > div {
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+  }
+
+  .repository .infos svg {
+    margin: 0;
+    margin-right: .25rem;
+  }
+
+/* Charts */
+  .chart-bars {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: 12rem;
+    overflow: auto;
+  }
+  .chart-bars .entry {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .chart-bars .entry .value {
+    color: var(--color-text-secondary);
+    font-size: .8rem;
+  }
+  .chart-bars .entry .label {
+    margin: 0 .25rem;
+  }
+  .chart-bars .bar {
+    width: 100%;
+  }
+
+/* Code highlighting */
+.token.comment {
+  color: #669900;
+}
+.token.punctuation {
+  color: #8a93a8;
+}
+.token.namespace, .token.constant, .token.symbol, .token.keyword {
+  color: #b44418;
+}
+.token.regex, .token.string, .token.char, .token.number, .token.boolean {
+  color: #2777AA;
+}
+.token.property, .token.tag {
+  color: #48428a;
+}
+.token.builtin, .token.operator {
+  color: #106cbc;
+}
+.token.trimmed {
+  font-style: italic;
+  color: #77777760;
+}
+.token.coord {
+  color: #D2A8FF;
+  font-weight: bold;
+}
+.token.inserted:not(.prefix) {
+  color: #AAD0B4DC;
+  background-color: #336543DC;
+}
+.token.deleted:not(.prefix) {
+  color: #EED2D0DC;
+  background-color: #9A5256DC;
+}
+
+/* Icon gauges */
+  .gauge {
+    stroke-linecap: round;
+    fill: none;
+    color: #58A6FF;
+  }
+  .gauge text {
+    fill: #ffffff;
+  }
+  .gauge-base, .gauge-arc {
+    stroke: currentColor;
+    stroke-width: 6;
+  }
+  .gauge-base {
+    stroke-opacity: .2;
+  }
+  .gauge-arc {
+    fill: none;
+    stroke-dashoffset: 0;
+    animation-delay: 250ms;
+    animation: animation-gauge 1s ease forwards
+  }
+  @keyframes animation-gauge {
+    from {
+      stroke-dasharray: 0 329;
+    }
+  }
+
+/* General and colors */
+  .icon {
+    margin: 0 .25rem;
+    width: 44px;
+    height: 44px;
+  }
+  .text {
+    font-size: 12px;
+  }
+  .info {
+    font-size: 14px;
+    color: #58A6FF;
+  }
+  .x .info {
+    color: #666666;
+  }
+  .x .gauge {
+    color: #B0B0B0;
+  }
+  .b .info {
+    color: #9D8FFF;
+  }
+  .b .gauge {
+    color: #9E91FF;
+  }
+  .a .info {
+    color: #D79533;
+  }
+  .a .gauge {
+    color: #E7BD69;
+  }
+  .s .info {
+    color: #EB355E;
+  }
+  .s .gauge {
+    color: #EB355E;
+  }
+  .secret .info {
+    color: #FF76CD;
+  }
+  .secret .gauge {
+    color: #FF79D1;
+  }
+
+/* Header */
+  h2 {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+  }
+  h2 svg {
+    margin-right: .25rem;
+    fill: currentColor;
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+
+/* Inputs */
+  label {
+    cursor: pointer;
+  }
+  label:hover {
+    background-color: var(--color-input-contrast-bg);
+    border-radius: 6px;
+  }
+
+  input[type=text], input[type=number], select {
+    background-color: var(--color-input-contrast-bg);
+    padding: .4rem .8rem;
+    color: var(--color-text-primary);
+    background-color: var(--color-input-bg);
+    border: 1px solid var(--color-input-border);
+    border-radius: 6px;
+    outline: none;
+    box-shadow: var(--color-shadow-inset);
+  }
+
+  input[type=text]:focus, input[type=number]:focus, select:focus {
+    background-color: var(--color-input-bg);
+    border-color: var(--color-state-focus-border);
+    outline: none;
+    box-shadow: var(--color-state-focus-shadow);
+  }
+
+  button {
+    color: var(--color-btn-primary-text);
+    background-color: var(--color-btn-primary-bg);
+    border-color: var(--color-btn-primary-border);
+    box-shadow: var(--color-btn-primary-shadow),var(--color-btn-primary-inset-shadow);
+    padding: .4rem .8rem;
+    border-radius: 6px;
+    font-weight: 500;
+    margin: .5rem 0;
+    cursor: pointer;
+    transition-duration: all .12s ease-out;
+  }
+
+  button[disabled] {
+    color: var(--color-btn-primary-disabled-text);
+    background-color: var(--color-btn-primary-disabled-bg);
+    border-color: var(--color-btn-primary-disabled-border);
+  }
+
+  button:focus {
+    outline: none;
+  }
+
+/* */
+  small.footnote {
+    font-style: italic;
+    opacity: .8;
+    display: block;
+    text-align: left;
+  }
+
+/* Media screen */
+  @media only screen and (min-width: 740px)  {
+    .rankeds {
+      flex-direction: row;
+      margin: 4rem 0 2rem;
+    }
+    .ranked {
+      margin-bottom: 0;
+    }
+    .languages .language {
+      width: 25%;
+    }
+    .followup .followup-section {
+      width: calc(50% - 1rem);
+      margin-right: 1rem;
+    }
+    .search {
+      width: 520px;
+    }
+    .repository {
+      max-width: 416px;
+    }
+  }
+
+/* Loading bar */
+  .loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 9999;
+  }
+  .loading-bar > div {
+    background-color: #58A6FF;
+    height: 100%;
+    transition: all .12s ease-out;
+  }
+    </style>
+</head>
+<body class="dark"> <!-- or class="light" for light theme -->
+    <div class="profile-container">
+        <!-- Profile Header -->
+        <header class="profile-header animate-fade-in">
+            <div class="profile-info">
+                <div class="profile-avatar">AI</div>
+                <div class="profile-details">
+                    <h1>Axion Industries</h1>
+                    <div class="profile-username">@Axion-Industries</div>
+                    <p class="profile-description">
+                        We are a organization that creates useful websites for all sorts of people, ranging from business owners to ordinary people.
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Statistics Grid -->
+        <section class="stats-grid animate-fade-in animate-delay-1">
+            <div class="stat-card">
+                <div class="stat-value">9</div>
+                <div class="stat-label">Languages Used</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">754,398</div>
+                <div class="stat-label">Total Bytes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">User Reactions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">1</div>
+                <div class="stat-label">Starred Repos</div>
+            </div>
+        </section>
+
+        <!-- Notable Contributions -->
+        <section class="section animate-fade-in animate-delay-2">
+            <h2 class="section-title">Notable Contributions</h2>
+            <div class="section-content">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📝</div>
+                    <p>No contributions to display</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Repositories -->
+        <section class="section animate-fade-in animate-delay-2">
+            <h2 class="section-title">Featured Repositories</h2>
+            <div class="section-content">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📁</div>
+                    <p>No featured repositories</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages Used -->
+        <section class="section animate-fade-in animate-delay-3">
+            <h2 class="section-title">Languages Used</h2>
+            <div class="languages-grid">
+                <div class="languages-chart">
+                    <div class="language-item">
+                        <div class="language-info">
+                            <span class="language-dot lang-jupyter"></span>
+                            <span class="language-name">Jupyter Notebook</span>
+                        </div>
+                        <span class="language-percentage">38.18%</span>
+                    </div>
+                    <div class="language-bar">
+                        <div class="language-fill lang-jupyter" style="width: 38.18%"></div>
+                    </div>
+                    <div class="byte-count">288,009 bytes</div>
+
+                    <div class="language-item">
+                        <div class="language-info">
+                            <span class="language-dot lang-typescript"></span>
+                            <span class="language-name">TypeScript</span>
+                        </div>
+                        <span class="language-percentage">34.82%</span>
+                    </div>
+                    <div class="language-bar">
+                        <div class="language-fill lang-typescript" style="width: 34.82%"></div>
+                    </div>
+                    <div class="byte-count">262,716 bytes</div>
+
+                    <div class="language-item">
+                        <div class="language-info">
+                            <span class="language-dot lang-python"></span>
+                            <span class="language-name">Python</span>
+                        </div>
+                        <span class="language-percentage">12.71%</span>
+                    </div>
+                    <div class="language-bar">
+                        <div class="language-fill lang-python" style="width: 12.71%"></div>
+                    </div>
+                    <div class="byte-count">95,886 bytes</div>
+
+                    <div class="language-item">
+                        <div class="language-info">
+                            <span class="language-dot lang-html"></span>
+                            <span class="language-name">HTML</span>
+                        </div>
+                        <span class="language-percentage">11.83%</span>
+                    </div>
+                    <div class="language-bar">
+                        <div class="language-fill lang-html" style="width: 11.83%"></div>
+                    </div>
+                    <div class="byte-count">89,263 bytes</div>
+
+                    <div class="language-item">
+                        <div class="language-info">
+                            <span class="language-dot lang-shell"></span>
+                            <span class="language-name">Shell</span>
+                        </div>
+                        <span class="language-percentage">1.25%</span>
+                    </div>
+                    <div class="language-bar">
+                        <div class="language-fill lang-shell" style="width: 1.25%"></div>
+                    </div>
+                    <div class="byte-count">9,409 bytes</div>
+
+                    <div class="language-item">
+                        <div class="language-info">
+                            <span class="language-dot lang-css"></span>
+                            <span class="language-name">CSS</span>
+                        </div>
+                        <span class="language-percentage">0.85%</span>
+                    </div>
+                    <div class="language-bar">
+                        <div class="language-fill lang-css" style="width: 0.85%"></div>
+                    </div>
+                    <div class="byte-count">6,415 bytes</div>
+
+                    <div class="language-item">
+                        <div class="language-info">
+                            <span class="language-dot lang-dockerfile"></span>
+                            <span class="language-name">Dockerfile</span>
+                        </div>
+                        <span class="language-percentage">0.24%</span>
+                    </div>
+                    <div class="language-bar">
+                        <div class="language-fill lang-dockerfile" style="width: 0.24%"></div>
+                    </div>
+                    <div class="byte-count">1,841 bytes</div>
+
+                    <div class="language-item">
+                        <div class="language-info">
+                            <span class="language-dot lang-makefile"></span>
+                            <span class="language-name">Makefile</span>
+                        </div>
+                        <span class="language-percentage">0.09%</span>
+                    </div>
+                    <div class="language-bar">
+                        <div class="language-fill lang-makefile" style="width: 0.09%"></div>
+                    </div>
+                    <div class="byte-count">687 bytes</div>
+
+                    <div class="language-item">
+                        <div class="language-info">
+                            <span class="language-dot lang-javascript"></span>
+                            <span class="language-name">JavaScript</span>
+                        </div>
+                        <span class="language-percentage">0.02%</span>
+                    </div>
+                    <div class="language-bar">
+                        <div class="language-fill lang-javascript" style="width: 0.02%"></div>
+                    </div>
+                    <div class="byte-count">172 bytes</div>
+                </div>
+
+                <div class="languages-summary">
+                    <h3>Summary</h3>
+                    <div class="stat-card">
+                        <div class="stat-value">754K</div>
+                        <div class="stat-label">Total Bytes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">9</div>
+                        <div class="stat-label">Languages</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Starred Topics -->
+        <section class="section animate-fade-in animate-delay-4">
+            <h2 class="section-title">Starred Topics</h2>
+            <div class="section-content">
+                <div class="empty-state">
+                    <div class="empty-state-icon">⭐</div>
+                    <p>No starred topics</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Issues and Pull Requests -->
+        <section class="section animate-fade-in">
+            <h2 class="section-title">Issues & Pull Requests Overview</h2>
+            <div class="issues-prs-grid">
+                <div class="issue-pr-card">
+                    <div class="issue-pr-title">Issues on Repositories</div>
+                    <div class="issue-pr-stats">
+                        <div class="issue-pr-stat">
+                            <span class="status-open">●</span>
+                            <span>7 Open</span>
+                        </div>
+                        <div class="issue-pr-stat">
+                            <span class="status-closed">●</span>
+                            <span>2 Closed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="issue-pr-card">
+                    <div class="issue-pr-title">Pull Requests on Repositories</div>
+                    <div class="issue-pr-stats">
+                        <div class="issue-pr-stat">
+                            <span class="status-open">●</span>
+                            <span>8 Open</span>
+                        </div>
+                        <div class="issue-pr-stat">
+                            <span class="status-closed">●</span>
+                            <span>4 Closed</span>
+                        </div>
+                        <div class="issue-pr-stat">
+                            <span class="status-merged">●</span>
+                            <span>0 Merged</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="issue-pr-card">
+                    <div class="issue-pr-title">Issues Opened by User</div>
+                    <div class="issue-pr-stats">
+                        <div class="issue-pr-stat">
+                            <span class="status-open">●</span>
+                            <span>7 Open</span>
+                        </div>
+                        <div class="issue-pr-stat">
+                            <span class="status-closed">●</span>
+                            <span>2 Closed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="issue-pr-card">
+                    <div class="issue-pr-title">Pull Requests by User</div>
+                    <div class="issue-pr-stats">
+                        <div class="issue-pr-stat">
+                            <span class="status-open">●</span>
+                            <span>0 Open</span>
+                        </div>
+                        <div class="issue-pr-stat">
+                            <span class="status-closed">●</span>
+                            <span>0 Closed</span>
+                        </div>
+                        <div class="issue-pr-stat">
+                            <span class="status-merged">●</span>
+                            <span>0 Merged</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recently Starred Repository -->
+        <section class="section animate-fade-in">
+            <h2 class="section-title">Recently Starred Repository</h2>
+            <div class="starred-repo">
+                <div class="starred-repo-header">
+                    <a href="#" class="starred-repo-name">Axion-Industries/void-abandoned</a>
+                    <div class="starred-date">Starred on 8/3/2025</div>
+                </div>
+                <p class="starred-repo-description">
+                    Void AI is a smart, all-purpose assistant built to help with writing, coding, planning, research, and creative tasks. It's fast, intuitive, and designed to make complex things simple. Whether it's for work, school, or just exploring ideas, Void AI keeps things easy and efficient.
+                </p>
+                <div class="starred-repo-stats">
+                    <div class="repo-stat">
+                        <span class="language-dot lang-jupyter"></span>
+                        <span>Jupyter Notebook</span>
+                    </div>
+                    <div class="repo-stat">📄 MIT License</div>
+                    <div class="repo-stat">⭐ 1</div>
+                    <div class="repo-stat">🍴 0</div>
+                    <div class="repo-stat">👁 9</div>
+                    <div class="repo-stat">📊 12</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="section animate-fade-in">
+            <h2 class="section-title">Recent Activity</h2>
+            <div class="activity-container">
+                <div class="activity-item">
+                    <div class="activity-icon">🔧</div>
+                    <div class="activity-content">
+                        <div class="activity-message">
+                            Pushed 1 commit to <a href="#" class="activity-repo">Axion-Industries/company-template</a> on branch main
+                            <span class="commit-hash">#d106507</span> Update PricingSection.tsx
+                        </div>
+                        <div class="activity-timestamp">8/25/25, 7:56 AM</div>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-icon">🔧</div>
+                    <div class="activity-content">
+                        <div class="activity-message">
+                            Pushed 1 commit to <a href="#" class="activity-repo">Axion-Industries/company-template</a> on branch main
+                            <span class="commit-hash">#04bee7d</span> Update FeaturesSection.tsx
+                        </div>
+                        <div class="activity-timestamp">8/25/25, 7:56 AM</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Inlined contents of script_v=3.34.js -->
+    <script>
+;(async function() {
+  //App
+  return new Vue({
+    //Initialization
+    el: "main",
+    async mounted() {
+      //Palette
+      try {
+        this.palette = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+        if (localStorage.getItem("session.metrics"))
+          axios.defaults.headers.common["x-metrics-session"] = localStorage.getItem("session.metrics")
+      }
+      catch (error) {}
+      //Embed
+      this.embed = !!(new URLSearchParams(location.search).get("embed"))
+      //From local storage
+      this.localstorage = !!(new URLSearchParams(location.search).get("localstorage"))
+      //User
+      const user = location.pathname.split("/").pop()
+      if ((user) && (!["about", "insights"].includes(user))) {
+        this.user = user
+        await this.search()
+      }
+      else {
+        const user = new URLSearchParams(location.search).get("user")
+        this.searchable = true
+        if (user) {
+          this.user = user
+          this.search()
+        }
+      }
+      //Init
+      await Promise.all([
+        //GitHub limit tracker
+        (async () => {
+          const {data: requests} = await axios.get("/.requests")
+          this.requests = requests
+          if (!requests.login) {
+            localStorage.removeItem("session.metrics")
+            delete axios.defaults.headers.common["x-metrics-session"]
+          }
+        })(),
+        //Version
+        (async () => {
+          const {data: version} = await axios.get("/.version")
+          this.version = `v${version}`
+        })(),
+        //Hosted
+        (async () => {
+          const {data: hosted} = await axios.get("/.hosted")
+          this.hosted = hosted
+        })(),
+        //OAuth
+        (async () => {
+          const {data: enabled} = await axios.get("/.oauth/enabled")
+          this.oauth = enabled
+        })(),
+      ])
+    },
+    //Watchers
+    watch: {
+      palette: {
+        immediate: true,
+        handler(current, previous) {
+          document.querySelector("body").classList.remove(previous)
+          document.querySelector("body").classList.add(current)
+        },
+      },
+    },
+    //Methods
+    methods: {
+      format(type, value, options) {
+        switch (type) {
+          case "plural":
+            if (options?.y)
+              return (value !== 1) ? "ies" : "y"
+            return (value !== 1) ? "s" : ""
+          case "number":
+            return new Intl.NumberFormat(navigator.lang, options).format(value)
+          case "date":
+            return new Intl.DateTimeFormat(navigator.lang, options).format(new Date(value))
+          case "comment":
+            const baseUrl = String.raw`https?:\/\/(?:www\.)?github.com\/([\w.-]+\/[\w.-]+)\/`
+            return value
+              .replace(
+                RegExp(baseUrl + String.raw`(?:issues|pull|discussions)\/(\d+)(?:\?[\w-]+)?(#[\w-]+)?(?=<)`, "g"),
+                (_, repo, id, comment) => (options?.repo === repo ? "" : repo) + `#${id}` + (comment ? ` (comment)` : ""),
+              ) // -> 'lowlighter/metrics#123'
+              .replace(
+                RegExp(baseUrl + String.raw`commit\/([\da-f]+)(?=<)`, "g"),
+                (_, repo, sha) => (options?.repo === repo ? "" : repo + "@") + sha,
+              ) // -> 'lowlighter/metrics@123abc'
+              .replace(
+                RegExp(baseUrl + String.raw`compare\/([\w-.]+...[\w-.]+)(?=<)`, "g"),
+                (_, repo, tags) => (options?.repo === repo ? "" : repo + "@") + tags,
+              ) // -> 'lowlighter/metrics@1.0...1.1'
+              .replace(
+                /[^&]#(\d+)/g,
+                (_, id) => `<a href="https://github.com/${options?.repo}/issues/${id}">#${id}</a>`,
+              ) // -> #123
+              .replace(
+                /@([-\w]+)/g,
+                (_, user) => `<a href="https://github.com/${user}">@${user}</a>`,
+              ) // -> @user
+        }
+        return value
+      },
+      async search() {
+        try {
+          this.error = null
+          this.metrics = null
+          this.pending = true
+          if (this.localstorage) {
+            this.metrics = JSON.parse(localStorage.getItem("local.metrics") ?? "null")
+            this.loaded = ["base", ...Object.keys(this.metrics?.rendered?.plugins ?? {})]
+            return
+          }
+          const {processing, ...data} = (await axios.get(`/insights/query/${this.user}`)).data
+          if (processing) {
+            let completed = 0
+            this.progress = 1 / (data.plugins.length + 1)
+            this.loaded = []
+            const retry = async (plugin, attempts = 60, interval = 10) => {
+              if (this.loaded.includes(plugin))
+                return
+              do {
+                try {
+                  const {data} = await axios.get(`/insights/query/${this.user}/${plugin}`)
+                  if (!data)
+                    throw new Error(`${plugin}: no data`)
+                  if (plugin === "base")
+                    this.metrics = {rendered: data, mime: "application/json", errors: []}
+                  else
+                    Object.assign(this.metrics.rendered.plugins, {[plugin]: data})
+                  break
+                }
+                catch {
+                  console.warn(`${plugin}: no data yet, retrying in ${interval} seconds`)
+                  await new Promise(solve => setTimeout(solve, interval * 1000))
+                }
+              }
+              while (--attempts)
+              completed++
+              this.progress = completed / (data.plugins.length + 1)
+              this.loaded.push(plugin)
+            }
+            await retry("base", 30, 5)
+            await Promise.allSettled(data.plugins.map(plugin => retry(plugin)))
+          }
+          else {
+            this.metrics = data
+            this.loaded = ["base", ...Object.keys(this.metrics?.rendered?.plugins ?? {})]
+          }
+        }
+        catch (error) {
+          this.error = {code: error.response.status, message: error.response.data}
+        }
+        finally {
+          this.pending = false
+          try {
+            const {data: requests} = await axios.get("/.requests")
+            this.requests = requests
+          }
+          catch {}
+        }
+      },
+    },
+    //Computed properties
+    computed: {
+      params() {
+        return new URLSearchParams({from: location.href})
+      },
+      warnings() {
+        return Object.entries(this.metrics?.rendered.plugins ?? {}).map(([_, value]) => value?.error).filter(value => value)
+      },
+      stats() {
+        return this.metrics?.rendered.user ?? null
+      },
+      sponsors() {
+        return this.metrics?.rendered.plugins?.sponsors ?? null
+      },
+      ranked() {
+        return this.metrics?.rendered.plugins?.achievements?.list?.filter(({leaderboard}) => leaderboard).sort((a, b) => a.leaderboard.type.localeCompare(b.leaderboard.type)) ?? []
+      },
+      achievements() {
+        return this.metrics?.rendered.plugins?.achievements?.list?.filter(({leaderboard}) => !leaderboard).filter(({title}) => !/(?:automator|octonaut|infographile)/i.test(title)) ?? []
+      },
+      introduction() {
+        return this.metrics?.rendered.plugins?.introduction?.text ?? ""
+      },
+      followup() {
+        return this.metrics?.rendered.plugins?.followup ?? null
+      },
+      calendar() {
+        if (this.metrics?.rendered.plugins?.calendar) {
+          return Object.assign(this.metrics?.rendered.plugins?.calendar, {
+            color(c) {
+              return {
+                "#ebedf0": "var(--color-calendar-graph-day-bg)",
+                "#9be9a8": "var(--color-calendar-graph-day-L1-bg)",
+                "#40c463": "var(--color-calendar-graph-day-L2-bg)",
+                "#30a14e": "var(--color-calendar-graph-day-L3-bg)",
+                "#216e39": "var(--color-calendar-graph-day-L4-bg)",
+              }[c] ?? c
+            },
+          })
+        }
+        return null
+      },
+      isocalendar() {
+        return (this.metrics?.rendered.plugins?.isocalendar?.svg ?? "")
+          .replace(/#ebedf0/gi, "var(--color-calendar-graph-day-bg)")
+          .replace(/#9be9a8/gi, "var(--color-calendar-graph-day-L1-bg)")
+          .replace(/#40c463/gi, "var(--color-calendar-graph-day-L2-bg)")
+          .replace(/#30a14e/gi, "var(--color-calendar-graph-day-L3-bg)")
+          .replace(/#216e39/gi, "var(--color-calendar-graph-day-L4-bg)")
+      },
+      languages() {
+        return Object.assign(this.metrics?.rendered.plugins?.languages?.favorites ?? [], {total: this.metrics?.rendered.plugins?.languages.total})
+      },
+      reactions() {
+        return this.metrics?.rendered.plugins?.reactions ?? null
+      },
+      repositories() {
+        return this.metrics?.rendered.plugins?.repositories?.list ?? []
+      },
+      stars() {
+        return {repositories: this.metrics?.rendered.plugins?.stars?.repositories.map(({node, starredAt}) => ({...node, starredAt})) ?? []}
+      },
+      topics() {
+        return this.metrics?.rendered.plugins?.topics?.list ?? []
+      },
+      activity() {
+        return this.metrics?.rendered.plugins?.activity?.events ?? []
+      },
+      contributions() {
+        return this.metrics?.rendered.plugins?.notable?.contributions ?? []
+      },
+      account() {
+        if (!this.metrics)
+          return null
+        const {login, name} = this.metrics?.rendered.user
+        return {login, name, avatar: this.metrics?.rendered.computed.avatar, type: this.metrics?.rendered.account}
+      },
+      url() {
+        return `${window.location.protocol}//${window.location.host}/insights/${this.user}`
+      },
+      preview() {
+        return /-preview$/.test(this.version)
+      },
+      beta() {
+        return /-beta$/.test(this.version)
+      },
+      rlreset() {
+        const reset = new Date(Math.max(this.requests.graphql.reset, this.requests.rest.reset))
+        return `${reset.getHours()}:${reset.getMinutes()}`
+      },
+    },
+    //Data initialization
+    data: {
+      version: "",
+      hosted: null,
+      user: "",
+      embed: false,
+      localstorage: false,
+      searchable: false,
+      requests: {rest: {limit: 0, used: 0, remaining: 0, reset: NaN}, graphql: {limit: 0, used: 0, remaining: 0, reset: NaN}, search: {limit: 0, used: 0, remaining: 0, reset: NaN}},
+      palette: "light",
+      metrics: null,
+      pending: false,
+      oauth: false,
+      error: null,
+      config: {},
+      progress: 0,
+      loaded: [],
+    },
+  })
+})()
+    </script>
+</body>
+</html>
