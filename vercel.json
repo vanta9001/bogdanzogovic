@@ -13,8 +13,8 @@
       "permanent": true
     },
     {
-      "source": "/photos/monaco",
-      "destination": "/photos/Monaco",
+      "source": "/stats",
+      "destination": "/stats",
       "permanent": true
     },
     {
@@ -29,45 +29,159 @@
     },
 
     {
-      "source": "/metrics",
-      "destination": "/stats",
+      "source": "/monaco",
+      "destination": "/photos/Monaco",
+      "permanent": true
+    },
+    {
+      "source": "/pages/monaco",
+      "destination": "/photos/Monaco",
+      "permanent": true
+    },
+    {
+      "source": "/photos/monaco",
+      "destination": "/photos/Monaco",
+      "permanent": true
+    },
+    {
+      "source": "/Monaco",
+      "destination": "/photos/Monaco",
+      "permanent": true
+    },
+    {
+      "source": "/pages/Monaco",
+      "destination": "/photos/Monaco",
+      "permanent": true
+    },
+    {
+      "source": "/photos/Monaco",
+      "destination": "/photos/Monaco",
       "permanent": true
     },
 
-    { "source": "/monaco", "destination": "/photos/Monaco", "permanent": true },
-    { "source": "/pages/monaco", "destination": "/photos/Monaco", "permanent": true },
-    { "source": "/photos/monaco", "destination": "/photos/Monaco", "permanent": true },
-    { "source": "/Monaco", "destination": "/photos/Monaco", "permanent": true },
-    { "source": "/pages/Monaco", "destination": "/photos/Monaco", "permanent": true },
-    { "source": "/photos/Monaco", "destination": "/photos/Monaco", "permanent": true },
+    {
+      "source": "/minnesota",
+      "destination": "/photos/Minnesota",
+      "permanent": true
+    },
+    {
+      "source": "/pages/minnesota",
+      "destination": "/photos/Minnesota",
+      "permanent": true
+    },
+    {
+      "source": "/photos/minnesota",
+      "destination": "/photos/Minnesota",
+      "permanent": true
+    },
+    {
+      "source": "/Minnesota",
+      "destination": "/photos/Minnesota",
+      "permanent": true
+    },
+    {
+      "source": "/pages/Minnesota",
+      "destination": "/photos/Minnesota",
+      "permanent": true
+    },
+    {
+      "source": "/photos/Minnesota",
+      "destination": "/photos/Minnesota",
+      "permanent": true
+    },
 
-    { "source": "/minnesota", "destination": "/photos/Minnesota", "permanent": true },
-    { "source": "/pages/minnesota", "destination": "/photos/Minnesota", "permanent": true },
-    { "source": "/photos/minnesota", "destination": "/photos/Minnesota", "permanent": true },
-    { "source": "/Minnesota", "destination": "/photos/Minnesota", "permanent": true },
-    { "source": "/pages/Minnesota", "destination": "/photos/Minnesota", "permanent": true },
-    { "source": "/photos/Minnesota", "destination": "/photos/Minnesota", "permanent": true },
+    {
+      "source": "/italy",
+      "destination": "/photos/Italy",
+      "permanent": true
+    },
+    {
+      "source": "/pages/italy",
+      "destination": "/photos/Italy",
+      "permanent": true
+    },
+    {
+      "source": "/photos/italy",
+      "destination": "/photos/Italy",
+      "permanent": true
+    },
+    {
+      "source": "/Italy",
+      "destination": "/photos/Italy",
+      "permanent": true
+    },
+    {
+      "source": "/pages/Italy",
+      "destination": "/photos/Italy",
+      "permanent": true
+    },
+    {
+      "source": "/photos/Italy",
+      "destination": "/photos/Italy",
+      "permanent": true
+    },
 
-    { "source": "/italy", "destination": "/photos/Italy", "permanent": true },
-    { "source": "/pages/italy", "destination": "/photos/Italy", "permanent": true },
-    { "source": "/photos/italy", "destination": "/photos/Italy", "permanent": true },
-    { "source": "/Italy", "destination": "/photos/Italy", "permanent": true },
-    { "source": "/pages/Italy", "destination": "/photos/Italy", "permanent": true },
-    { "source": "/photos/Italy", "destination": "/photos/Italy", "permanent": true },
+    {
+      "source": "/montenegro",
+      "destination": "/photos/Montenegro",
+      "permanent": true
+    },
+    {
+      "source": "/pages/montenegro",
+      "destination": "/photos/Montenegro",
+      "permanent": true
+    },
+    {
+      "source": "/photos/montenegro",
+      "destination": "/photos/Montenegro",
+      "permanent": true
+    },
+    {
+      "source": "/Montenegro",
+      "destination": "/photos/Montenegro",
+      "permanent": true
+    },
+    {
+      "source": "/pages/Montenegro",
+      "destination": "/photos/Montenegro",
+      "permanent": true
+    },
+    {
+      "source": "/photos/Montenegro",
+      "destination": "/photos/Montenegro",
+      "permanent": true
+    },
 
-    { "source": "/montenegro", "destination": "/photos/Montenegro", "permanent": true },
-    { "source": "/pages/montenegro", "destination": "/photos/Montenegro", "permanent": true },
-    { "source": "/photos/montenegro", "destination": "/photos/Montenegro", "permanent": true },
-    { "source": "/Montenegro", "destination": "/photos/Montenegro", "permanent": true },
-    { "source": "/pages/Montenegro", "destination": "/photos/Montenegro", "permanent": true },
-    { "source": "/photos/Montenegro", "destination": "/photos/Montenegro", "permanent": true },
-
-    { "source": "/wallpapers", "destination": "/photos/Wallpapers", "permanent": true },
-    { "source": "/pages/wallpapers", "destination": "/photos/Wallpapers", "permanent": true },
-    { "source": "/photos/wallpapers", "destination": "/photos/Wallpapers", "permanent": true },
-    { "source": "/Wallpapers", "destination": "/photos/Wallpapers", "permanent": true },
-    { "source": "/pages/Wallpapers", "destination": "/photos/Wallpapers", "permanent": true },
-    { "source": "/photos/Wallpapers", "destination": "/photos/Wallpapers", "permanent": true }
+    {
+      "source": "/wallpapers",
+      "destination": "/photos/Wallpapers",
+      "permanent": true
+    },
+    {
+      "source": "/pages/wallpapers",
+      "destination": "/photos/Wallpapers",
+      "permanent": true
+    },
+    {
+      "source": "/photos/wallpapers",
+      "destination": "/photos/Wallpapers",
+      "permanent": true
+    },
+    {
+      "source": "/Wallpapers",
+      "destination": "/photos/Wallpapers",
+      "permanent": true
+    },
+    {
+      "source": "/pages/Wallpapers",
+      "destination": "/photos/Wallpapers",
+      "permanent": true
+    },
+    {
+      "source": "/photos/Wallpapers",
+      "destination": "/photos/Wallpapers",
+      "permanent": true
+    }
   ],
   "headers": [
     {
