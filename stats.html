@@ -1156,6 +1156,18 @@
             <button id="menu-btn" class="menu-btn">Menu</button>
         </div>
 
+        <!-- Navigation Menu -->
+        <nav class="nav hidden">
+            <ol class="nav-items">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/photos">Photos</a></li>
+                <li class="nav-item"><a href="#work">My Work</a></li>
+                <li class="nav-item"><a href="#about-me">About</a></li>
+                <li class="nav-item"><a href="#skills">My Skills</a></li>
+                <li class="nav-item"><a href="#contact">Contact</a></li>
+            </ol>
+        </nav>
+
         <!-- Profile Header -->
         <header class="profile-header animate-fade-in">
             <div class="profile-info">
@@ -1164,7 +1176,7 @@
                     <h1>Axion Industries</h1>
                     <div class="profile-username">@Axion-Industries</div>
                     <p class="profile-description">
-                        We are a organization that creates useful websites for all sorts of people, ranging from business owners to ordinary people.
+                        We are an organization that creates useful websites for all sorts of people, ranging from business owners to ordinary people.
                     </p>
                 </div>
             </div>
@@ -1236,13 +1248,20 @@
     <script>
         // Menu toggle functionality
         const menuBtn = document.getElementById('menu-btn');
-        const nav = document.querySelector('.nav'); // Ensure you have a nav element to toggle
+        const nav = document.querySelector('.nav');
         let menuOpen = false;
 
         menuBtn.addEventListener('click', () => {
             menuOpen = !menuOpen;
             nav.classList.toggle('hidden', !menuOpen);
             menuBtn.classList.toggle('open', menuOpen);
+            // Add smooth transition
+            if (menuOpen) {
+                nav.style.transition = 'max-height 0.5s ease-in-out';
+                nav.style.maxHeight = '500px'; // Adjust based on your content
+            } else {
+                nav.style.maxHeight = '0';
+            }
         });
 
         // Dark mode toggle functionality
