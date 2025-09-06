@@ -3,9 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Wallpapers</title>
+        <title>Minnesota</title>
         <link rel="stylesheet" href="/style.css">
-        <link rel="stylesheet" href="/assets/photos.css">
     </head>
 
     <body>
@@ -35,23 +34,11 @@
 
         <header class="header photos-header">
             <div class="container">
-                <div class="header-content">
-                    <h1 class="h1">Wallpapers</h1>
-                </div>
-            </div>
-        </header>
+                <div class="header-content"> 
+                    <h1 class="h1">Minnesota</h1>
 
-        <main>
-            <section class="container gallery-section">
-                <div class="gallery-controls">
-                    <div class="controls-right">
-                        <button id="download-all" class="btn btn-cta" title="Download everything in this folder">Download All</button>
-                    </div>
-                </div>
-
-                <!-- Static image block inserted here (paths use ./ because index.html is in the same folder as the images) -->
-                <div class="static-gallery">
-                    <p class="header-text">This is the start of the Wallpapers photo page.</p>
+                    <p class="header-text">This is the start of the Minnesota photo page.</p>
+                    <!-- Use relative paths because this index.html lives inside the Wallpapers folder -->
                     <img src="./IMG_2877.JPG" loading="lazy" alt="IMG_2877" />
                     <img src="./IMG_2882.JPG" loading="lazy" alt="IMG_2882" />
                     <img src="./IMG_2976.JPG" loading="lazy" alt="IMG_2976" />
@@ -66,7 +53,6 @@
                     <img src="./IMG_3091.JPG" loading="lazy" alt="IMG_3091" />
                     <img src="./IMG_3101.JPG" loading="lazy" alt="IMG_3101" />
                     <img src="./IMG_3117.JPG" loading="lazy" alt="IMG_3117" />
-                    <img src="./IMG_3117.JPG.~tmp" loading="lazy" alt="IMG_3117_tmp" />
                     <img src="./IMG_3237.JPG" loading="lazy" alt="IMG_3237" />
                     <img src="./IMG_3245.JPG" loading="lazy" alt="IMG_3245" />
                     <img src="./IMG_3393.JPG" loading="lazy" alt="IMG_3393" />
@@ -78,11 +64,14 @@
                     <img src="./IMG_3897.JPG" loading="lazy" alt="IMG_3897" />
                     <img src="./IMG_3898.JPG" loading="lazy" alt="IMG_3898" />
                     <img src="./IMG_3983.JPG" loading="lazy" alt="IMG_3983" />
-                </div>
 
-                <!-- Keep the dynamic folder-root (photos.js / photosHelpers can still populate / use it) -->
-                <div id="folder-root" class="folders-root to-top" aria-live="polite"></div>
-                <div id="zip-global-placeholder"></div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="container">
+                <p>This is the end of the Minnesota photo page. Thank you for viewing, and I hope you enjoyed.</p>
             </section>
         </main>
 
@@ -124,22 +113,6 @@
             </div>
         </footer>
 
-        <script src="/assets/photos.js" defer></script>
         <script src="/script.js" defer></script>
-        <script>
-            // render this folder's files using shared helpers
-            document.addEventListener('DOMContentLoaded', async () => {
-                const base = '/photos/Wallpapers/';
-                if (!window.photosHelpers) return;
-                const data = await window.photosHelpers.loadFolderIndex(base);
-                const root = document.getElementById('folder-root');
-                if (!root) return;
-                // use the shared renderer to populate the folder-root container
-                window.photosHelpers.renderFolderContents(root, data, base);
-
-                const dl = document.getElementById('download-all');
-                if (dl) dl.addEventListener('click', () => window.photosHelpers.createZipFromFolder(base, 'Wallpapers'));
-            });
-        </script>
     </body>
 </html>
