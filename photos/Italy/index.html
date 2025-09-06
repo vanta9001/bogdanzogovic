@@ -4,8 +4,46 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Italy</title>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/assets/photos.css">
+        <link rel="stylesheet" href="/style.css">
+        <style>
+            /* Gallery-specific styles (keeps look if /style.css is missing) */
+            .folders { margin: 24px 0 48px; }
+            .folder { border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; margin-bottom: 12px; overflow: hidden; background: rgba(255,255,255,0.02); }
+            .folder-header { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; cursor:pointer; gap:12px; }
+            .folder-title { font-weight:600; font-size:1.05rem; }
+            .folder-controls { display:flex; gap:8px; align-items:center; }
+            .btn { background:transparent; border:1px solid rgba(255,255,255,0.08); padding:6px 10px; border-radius:8px; cursor:pointer; font-size:0.9rem; }
+            .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; padding:14px; }
+            @media (max-width:1000px){ .grid{ grid-template-columns:repeat(3,1fr);} }
+            @media (max-width:700px){ .grid{ grid-template-columns:repeat(2,1fr);} }
+            @media (max-width:420px){ .grid{ grid-template-columns:repeat(1,1fr);} }
+
+            .thumb { position:relative; overflow:hidden; border-radius:8px; background:#111; height:0; padding-bottom:66%; } /* 3:2-ish */
+            .thumb img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; transition:transform .25s ease; }
+            .thumb:hover img { transform:scale(1.05); }
+
+            .thumb-actions { position:absolute; bottom:6px; right:6px; display:flex; gap:6px; z-index:3; }
+            .thumb .small-btn { font-size:0.75rem; padding:6px 8px; border-radius:6px; background:rgba(0,0,0,0.5); color:#fff; border:1px solid rgba(255,255,255,0.08); text-decoration:none; }
+
+            /* Collapsed content */
+            .folder-content { display:none; border-top:1px solid rgba(255,255,255,0.02); }
+            .folder.open .folder-content { display:block; }
+
+            /* Modal */
+            .modal { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.8); z-index:2000; }
+            .modal.open { display:flex; }
+            .modal-inner { max-width:94vw; max-height:90vh; width:calc(80vw); background:#111; padding:12px; border-radius:10px; display:flex; flex-direction:column; gap:12px; }
+            .modal-img { max-height:78vh; display:block; width:100%; object-fit:contain; }
+            .modal-actions { display:flex; justify-content:space-between; gap:8px; align-items:center; }
+            .modal-actions .left { display:flex; gap:8px; align-items:center; }
+            .close-x { background:transparent; border:0; font-size:1.1rem; color:#fff; cursor:pointer; }
+            .folder-count { color: rgba(255,255,255,0.6); font-size:0.9rem; margin-left:8px; }
+
+            /* Small nice touches */
+            .chev { transition: transform .25s ease; }
+            .folder.open .chev { transform: rotate(90deg); }
+            .folder-header h3 { margin:0; display:flex; align-items:center; gap:8px; }
+        </style>
     </head>
 
     <body>
@@ -35,28 +73,412 @@
 
         <header class="header photos-header">
             <div class="container">
-                <div class="header-content">
+                <div class="header-content"> 
                     <h1 class="h1">Italy</h1>
-                    <p class="header-text">This is a placeholder page for the Italy folder.</p>
+
+                    <p class="header-text">This is the start of the Italy photo page.</p>
+
+                    <!-- Replaced static image list with foldered gallery -->
+                    <div class="folders" id="foldersRoot">
+
+                        <!-- Folder: City -->
+                        <section class="folder" data-name="City">
+                            <div class="folder-header" tabindex="0">
+                                <h3 class="folder-title">City <span class="folder-count">(34)</span></h3>
+                                <div class="folder-controls">
+                                    <button class="btn toggle">Open <span class="chev">▶</span></button>
+                                </div>
+                            </div>
+                            <div class="folder-content">
+                                <div class="grid">
+                                    <!-- City images -->
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2945.JPG" alt="IMG_2945" loading="lazy" data-src="photos/Italy/City/IMG_2945.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2945.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2945.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2947.JPG" alt="IMG_2947" loading="lazy" data-src="photos/Italy/City/IMG_2947.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2947.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2947.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2948.JPG" alt="IMG_2948" loading="lazy" data-src="photos/Italy/City/IMG_2948.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2948.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2948.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2949.JPG" alt="IMG_2949" loading="lazy" data-src="photos/Italy/City/IMG_2949.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2949.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2949.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2950.JPG" alt="IMG_2950" loading="lazy" data-src="photos/Italy/City/IMG_2950.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2950.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2950.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2953.JPG" alt="IMG_2953" loading="lazy" data-src="photos/Italy/City/IMG_2953.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2953.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2953.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2955.JPG" alt="IMG_2955" loading="lazy" data-src="photos/Italy/City/IMG_2955.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2955.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2955.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2956.JPG" alt="IMG_2956" loading="lazy" data-src="photos/Italy/City/IMG_2956.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2956.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2956.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2958.JPG" alt="IMG_2958" loading="lazy" data-src="photos/Italy/City/IMG_2958.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2958.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2958.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2959.JPG" alt="IMG_2959" loading="lazy" data-src="photos/Italy/City/IMG_2959.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2959.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2959.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2960.JPG" alt="IMG_2960" loading="lazy" data-src="photos/Italy/City/IMG_2960.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2960.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2960.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2961.JPG" alt="IMG_2961" loading="lazy" data-src="photos/Italy/City/IMG_2961.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2961.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2961.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2962.JPG" alt="IMG_2962" loading="lazy" data-src="photos/Italy/City/IMG_2962.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2962.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2962.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2963.JPG" alt="IMG_2963" loading="lazy" data-src="photos/Italy/City/IMG_2963.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2963.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2963.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2964.JPG" alt="IMG_2964" loading="lazy" data-src="photos/Italy/City/IMG_2964.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2964.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2964.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2965.JPG" alt="IMG_2965" loading="lazy" data-src="photos/Italy/City/IMG_2965.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2965.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2965.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2966.JPG" alt="IMG_2966" loading="lazy" data-src="photos/Italy/City/IMG_2966.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2966.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2966.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2967.JPG" alt="IMG_2967" loading="lazy" data-src="photos/Italy/City/IMG_2967.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2967.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2967.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2968.JPG" alt="IMG_2968" loading="lazy" data-src="photos/Italy/City/IMG_2968.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2968.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2968.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2969.JPG" alt="IMG_2969" loading="lazy" data-src="photos/Italy/City/IMG_2969.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2969.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2969.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2970.JPG" alt="IMG_2970" loading="lazy" data-src="photos/Italy/City/IMG_2970.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2970.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2970.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2971.JPG" alt="IMG_2971" loading="lazy" data-src="photos/Italy/City/IMG_2971.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2971.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2971.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2972.JPG" alt="IMG_2972" loading="lazy" data-src="photos/Italy/City/IMG_2972.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2972.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2972.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2973.JPG" alt="IMG_2973" loading="lazy" data-src="photos/Italy/City/IMG_2973.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2973.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2973.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_2976.JPG" alt="IMG_2976" loading="lazy" data-src="photos/Italy/City/IMG_2976.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_2976.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_2976.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_3091.JPG" alt="IMG_3091" loading="lazy" data-src="photos/Italy/City/IMG_3091.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_3091.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_3091.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_3094.JPG" alt="IMG_3094" loading="lazy" data-src="photos/Italy/City/IMG_3094.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_3094.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_3094.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_3095.JPG" alt="IMG_3095" loading="lazy" data-src="photos/Italy/City/IMG_3095.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_3095.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_3095.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_3097.JPG" alt="IMG_3097" loading="lazy" data-src="photos/Italy/City/IMG_3097.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_3097.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_3097.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_3098.JPG" alt="IMG_3098" loading="lazy" data-src="photos/Italy/City/IMG_3098.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_3098.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_3098.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_3099.JPG" alt="IMG_3099" loading="lazy" data-src="photos/Italy/City/IMG_3099.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_3099.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_3099.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/City/IMG_3100.JPG" alt="IMG_3100" loading="lazy" data-src="photos/Italy/City/IMG_3100.JPG"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/City/IMG_3100.JPG">View</a><a class="small-btn" href="photos/Italy/City/IMG_3100.JPG" download>Download</a></div></div>
+
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Folder: Lake Como -->
+                        <section class="folder" data-name="Lake Como">
+                            <div class="folder-header" tabindex="0">
+                                <h3 class="folder-title">Lake Como <span class="folder-count">(14)</span></h3>
+                                <div class="folder-controls">
+                                    <button class="btn toggle">Open <span class="chev">▶</span></button>
+                                </div>
+                            </div>
+                            <div class="folder-content">
+                                <div class="grid">
+                                    <div class="thumb"><img src="photos/Italy/Lake%20Como/IMG_3105.JPG" alt="IMG_3105" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Lake%20Como/IMG_3105.JPG">View</a><a class="small-btn" href="photos/Italy/Lake%20Como/IMG_3105.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Lake%20Como/IMG_3108.JPG" alt="IMG_3108" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Lake%20Como/IMG_3108.JPG">View</a><a class="small-btn" href="photos/Italy/Lake%20Como/IMG_3108.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Lake%20Como/IMG_3116.JPG" alt="IMG_3116" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Lake%20Como/IMG_3116.JPG">View</a><a class="small-btn" href="photos/Italy/Lake%20Como/IMG_3116.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Lake%20Como/IMG_3117.JPG" alt="IMG_3117" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Lake%20Como/IMG_3117.JPG">View</a><a class="small-btn" href="photos/Italy/Lake%20Como/IMG_3117.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/Lake%20Como/IMG_3132.JPG" alt="IMG_3132" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Lake%20Como/IMG_3132.JPG">View</a><a class="small-btn" href="photos/Italy/Lake%20Como/IMG_3132.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Lake%20Como/IMG_3134.JPG" alt="IMG_3134" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Lake%20Como/IMG_3134.JPG">View</a><a class="small-btn" href="photos/Italy/Lake%20Como/IMG_3134.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Lake%20Como/IMG_3135.JPG" alt="IMG_3135" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Lake%20Como/IMG_3135.JPG">View</a><a class="small-btn" href="photos/Italy/Lake%20Como/IMG_3135.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Lake%20Como/IMG_3141.JPG" alt="IMG_3141" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Lake%20Como/IMG_3141.JPG">View</a><a class="small-btn" href="photos/Italy/Lake%20Como/IMG_3141.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/Lake%20Como/IMG_3151.JPG" alt="IMG_3151" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Lake%20Como/IMG_3151.JPG">View</a><a class="small-btn" href="photos/Italy/Lake%20Como/IMG_3151.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Lake%20Como/IMG_3154.JPG" alt="IMG_3154" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Lake%20Como/IMG_3154.JPG">View</a><a class="small-btn" href="photos/Italy/Lake%20Como/IMG_3154.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Lake%20Como/IMG_3156.JPG" alt="IMG_3156" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Lake%20Como/IMG_3156.JPG">View</a><a class="small-btn" href="photos/Italy/Lake%20Como/IMG_3156.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Lake%20Como/IMG_3158.JPG" alt="IMG_3158" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Lake%20Como/IMG_3158.JPG">View</a><a class="small-btn" href="photos/Italy/Lake%20Como/IMG_3158.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/Lake%20Como/IMG_3161.JPG" alt="IMG_3161" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Lake%20Como/IMG_3161.JPG">View</a><a class="small-btn" href="photos/Italy/Lake%20Como/IMG_3161.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Lake%20Como/IMG_3162.JPG" alt="IMG_3162" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Lake%20Como/IMG_3162.JPG">View</a><a class="small-btn" href="photos/Italy/Lake%20Como/IMG_3162.JPG" download>Download</a></div></div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Folder: Milano -->
+                        <section class="folder" data-name="Milano">
+                            <div class="folder-header" tabindex="0">
+                                <h3 class="folder-title">Milano <span class="folder-count">(15)</span></h3>
+                                <div class="folder-controls">
+                                    <button class="btn toggle">Open <span class="chev">▶</span></button>
+                                </div>
+                            </div>
+                            <div class="folder-content">
+                                <div class="grid">
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_2986.JPG" alt="IMG_2986" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_2986.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_2986.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_2988.JPG" alt="IMG_2988" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_2988.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_2988.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_2989.JPG" alt="IMG_2989" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_2989.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_2989.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_2991.JPG" alt="IMG_2991" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_2991.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_2991.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_2992.JPG" alt="IMG_2992" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_2992.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_2992.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_2996.JPG" alt="IMG_2996" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_2996.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_2996.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_2997.JPG" alt="IMG_2997" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_2997.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_2997.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_3000.JPG" alt="IMG_3000" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_3000.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_3000.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_3001.JPG" alt="IMG_3001" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_3001.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_3001.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_3002.JPG" alt="IMG_3002" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_3002.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_3002.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_3003.JPG" alt="IMG_3003" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_3003.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_3003.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_3004.JPG" alt="IMG_3004" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_3004.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_3004.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_3005.JPG" alt="IMG_3005" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_3005.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_3005.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_3006.JPG" alt="IMG_3006" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_3006.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_3006.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Milano/IMG_3014.JPG" alt="IMG_3014" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Milano/IMG_3014.JPG">View</a><a class="small-btn" href="photos/Italy/Milano/IMG_3014.JPG" download>Download</a></div></div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Folder: Mont. Blanc -->
+                        <section class="folder" data-name="Mont. Blanc">
+                            <div class="folder-header" tabindex="0">
+                                <h3 class="folder-title">Mont. Blanc <span class="folder-count">(20)</span></h3>
+                                <div class="folder-controls">
+                                    <button class="btn toggle">Open <span class="chev">▶</span></button>
+                                </div>
+                            </div>
+                            <div class="folder-content">
+                                <div class="grid">
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3038.JPG" alt="IMG_3038" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3038.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3038.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3042.JPG" alt="IMG_3042" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3042.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3042.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3043.JPG" alt="IMG_3043" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3043.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3043.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3044.JPG" alt="IMG_3044" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3044.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3044.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3047.JPG" alt="IMG_3047" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3047.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3047.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3048.JPG" alt="IMG_3048" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3048.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3048.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3052.JPG" alt="IMG_3052" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3052.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3052.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3053.JPG" alt="IMG_3053" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3053.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3053.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3054.JPG" alt="IMG_3054" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3054.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3054.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3057.JPG" alt="IMG_3057" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3057.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3057.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3058.JPG" alt="IMG_3058" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3058.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3058.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3059.JPG" alt="IMG_3059" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3059.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3059.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3068.JPG" alt="IMG_3068" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3068.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3068.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3071.JPG" alt="IMG_3071" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3071.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3071.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3073.JPG" alt="IMG_3073" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3073.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3073.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3074.JPG" alt="IMG_3074" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3074.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3074.JPG" download>Download</a></div></div>
+
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3076.JPG" alt="IMG_3076" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3076.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3076.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3077.JPG" alt="IMG_3077" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3077.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3077.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3078.JPG" alt="IMG_3078" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3078.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3078.JPG" download>Download</a></div></div>
+                                    <div class="thumb"><img src="photos/Italy/Mont.%20Blanc/IMG_3079.JPG" alt="IMG_3079" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Mont.%20Blanc/IMG_3079.JPG">View</a><a class="small-btn" href="photos/Italy/Mont.%20Blanc/IMG_3079.JPG" download>Download</a></div></div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Folder: Rome (with subfolders Main and Vatican) -->
+                        <section class="folder" data-name="Rome">
+                            <div class="folder-header" tabindex="0">
+                                <h3 class="folder-title">Rome <span class="folder-count">(2 subfolders)</span></h3>
+                                <div class="folder-controls">
+                                    <button class="btn toggle">Open <span class="chev">▶</span></button>
+                                </div>
+                            </div>
+                            <div class="folder-content">
+
+                                <!-- Subfolder: Main -->
+                                <section class="folder" data-name="Rome/Main" style="margin:12px;">
+                                    <div class="folder-header" tabindex="0">
+                                        <h3 class="folder-title">Main <span class="folder-count">(42)</span></h3>
+                                        <div class="folder-controls">
+                                            <button class="btn toggle">Open <span class="chev">▶</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="folder-content">
+                                        <div class="grid">
+                                            <!-- Rome Main images (list) -->
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3191.JPG" alt="IMG_3191" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3191.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3191.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3192.JPG" alt="IMG_3192" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3192.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3192.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3193.JPG" alt="IMG_3193" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3193.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3193.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3194.JPG" alt="IMG_3194" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3194.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3194.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3198.JPG" alt="IMG_3198" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3198.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3198.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3199.JPG" alt="IMG_3199" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3199.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3199.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3200.JPG" alt="IMG_3200" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3200.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3200.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3201.JPG" alt="IMG_3201" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3201.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3201.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3203.JPG" alt="IMG_3203" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3203.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3203.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3206.JPG" alt="IMG_3206" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3206.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3206.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3207.JPG" alt="IMG_3207" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3207.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3207.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3208.JPG" alt="IMG_3208" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3208.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3208.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3209.JPG" alt="IMG_3209" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3209.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3209.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3212.JPG" alt="IMG_3212" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3212.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3212.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3213.JPG" alt="IMG_3213" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3213.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3213.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3214.JPG" alt="IMG_3214" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3214.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3214.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3217.JPG" alt="IMG_3217" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3217.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3217.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3218.JPG" alt="IMG_3218" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3218.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3218.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3222.JPG" alt="IMG_3222" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3222.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3222.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3224.JPG" alt="IMG_3224" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3224.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3224.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3228.JPG" alt="IMG_3228" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3228.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3228.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3231.JPG" alt="IMG_3231" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3231.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3231.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3232.JPG" alt="IMG_3232" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3232.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3232.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3233.JPG" alt="IMG_3233" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3233.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3233.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3234.JPG" alt="IMG_3234" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3234.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3234.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3236.JPG" alt="IMG_3236" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3236.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3236.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3238.JPG" alt="IMG_3238" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3238.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3238.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3239.JPG" alt="IMG_3239" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3239.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3239.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3240.JPG" alt="IMG_3240" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3240.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3240.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3245.JPG" alt="IMG_3245" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3245.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3245.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3248.JPG" alt="IMG_3248" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3248.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3248.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3252.JPG" alt="IMG_3252" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3252.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3252.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3254.JPG" alt="IMG_3254" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3254.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3254.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3256.JPG" alt="IMG_3256" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3256.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3256.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3273.JPG" alt="IMG_3273" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3273.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3273.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3274.JPG" alt="IMG_3274" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3274.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3274.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3680.JPG" alt="IMG_3680" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3680.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3680.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3682.JPG" alt="IMG_3682" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3682.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3682.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Main/IMG_3683.JPG" alt="IMG_3683" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Main/IMG_3683.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Main/IMG_3683.JPG" download>Download</a></div></div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Subfolder: Vatican -->
+                                <section class="folder" data-name="Rome/Vatican" style="margin:12px;">
+                                    <div class="folder-header" tabindex="0">
+                                        <h3 class="folder-title">Vatican <span class="folder-count">(131)</span></h3>
+                                        <div class="folder-controls">
+                                            <button class="btn toggle">Open <span class="chev">▶</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="folder-content">
+                                        <div class="grid">
+                                            <!-- Vatican images (all) -->
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3275.JPG" alt="IMG_3275" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3275.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3275.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3276.JPG" alt="IMG_3276" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3276.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3276.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3278.JPG" alt="IMG_3278" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3278.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3278.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3281.JPG" alt="IMG_3281" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3281.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3281.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3282.JPG" alt="IMG_3282" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3282.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3282.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3283.JPG" alt="IMG_3283" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3283.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3283.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3285.JPG" alt="IMG_3285" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3285.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3285.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3286.JPG" alt="IMG_3286" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3286.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3286.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3287.JPG" alt="IMG_3287" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3287.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3287.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3290.JPG" alt="IMG_3290" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3290.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3290.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3292.JPG" alt="IMG_3292" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3292.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3292.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3293.JPG" alt="IMG_3293" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3293.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3293.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3294.JPG" alt="IMG_3294" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3294.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3294.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3295.JPG" alt="IMG_3295" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3295.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3295.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3296.JPG" alt="IMG_3296" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3296.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3296.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3297.JPG" alt="IMG_3297" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3297.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3297.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3299.JPG" alt="IMG_3299" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3299.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3299.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3300.JPG" alt="IMG_3300" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3300.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3300.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3301.JPG" alt="IMG_3301" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3301.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3301.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3302.JPG" alt="IMG_3302" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3302.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3302.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3303.JPG" alt="IMG_3303" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3303.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3303.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3304.JPG" alt="IMG_3304" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3304.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3304.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3305.JPG" alt="IMG_3305" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3305.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3305.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3307.JPG" alt="IMG_3307" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3307.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3307.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3308.JPG" alt="IMG_3308" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3308.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3308.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3309.JPG" alt="IMG_3309" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3309.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3309.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3310.JPG" alt="IMG_3310" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3310.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3310.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3311.JPG" alt="IMG_3311" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3311.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3311.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3312.JPG" alt="IMG_3312" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3312.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3312.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3313.JPG" alt="IMG_3313" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3313.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3313.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3314.JPG" alt="IMG_3314" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3314.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3314.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3315.JPG" alt="IMG_3315" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3315.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3315.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3317.JPG" alt="IMG_3317" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3317.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3317.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3318.JPG" alt="IMG_3318" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3318.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3318.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3319.JPG" alt="IMG_3319" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3319.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3319.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3320.JPG" alt="IMG_3320" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3320.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3320.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3321.JPG" alt="IMG_3321" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3321.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3321.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3323.JPG" alt="IMG_3323" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3323.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3323.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3324.JPG" alt="IMG_3324" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3324.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3324.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3325.JPG" alt="IMG_3325" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3325.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3325.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3326.JPG" alt="IMG_3326" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3326.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3326.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3327.JPG" alt="IMG_3327" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3327.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3327.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3328.JPG" alt="IMG_3328" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3328.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3328.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3329.JPG" alt="IMG_3329" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3329.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3329.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3330.JPG" alt="IMG_3330" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3330.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3330.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3331.JPG" alt="IMG_3331" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3331.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3331.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3332.JPG" alt="IMG_3332" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3332.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3332.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3333.JPG" alt="IMG_3333" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3333.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3333.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3334.JPG" alt="IMG_3334" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3334.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3334.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3335.JPG" alt="IMG_3335" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3335.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3335.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3336.JPG" alt="IMG_3336" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3336.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3336.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3337.JPG" alt="IMG_3337" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3337.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3337.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3338.JPG" alt="IMG_3338" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3338.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3338.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3341.JPG" alt="IMG_3341" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3341.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3341.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3342.JPG" alt="IMG_3342" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3342.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3342.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3343.JPG" alt="IMG_3343" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3343.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3343.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3344.JPG" alt="IMG_3344" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3344.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3344.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3345.JPG" alt="IMG_3345" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3345.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3345.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3348.JPG" alt="IMG_3348" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3348.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3348.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3349.JPG" alt="IMG_3349" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3349.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3349.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3350.JPG" alt="IMG_3350" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3350.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3350.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3352.JPG" alt="IMG_3352" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3352.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3352.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3353.JPG" alt="IMG_3353" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3353.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3353.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3354.JPG" alt="IMG_3354" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3354.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3354.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3355.JPG" alt="IMG_3355" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3355.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3355.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3356.JPG" alt="IMG_3356" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3356.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3356.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3362.JPG" alt="IMG_3362" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3362.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3362.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3363.JPG" alt="IMG_3363" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3363.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3363.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3364.JPG" alt="IMG_3364" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3364.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3364.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3366.JPG" alt="IMG_3366" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3366.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3366.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3367.JPG" alt="IMG_3367" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3367.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3367.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3387.JPG" alt="IMG_3387" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3387.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3387.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3389.JPG" alt="IMG_3389" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3389.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3389.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3391.JPG" alt="IMG_3391" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3391.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3391.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3396.JPG" alt="IMG_3396" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3396.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3396.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3399.JPG" alt="IMG_3399" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3399.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3399.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3400.JPG" alt="IMG_3400" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3400.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3400.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3401.JPG" alt="IMG_3401" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3401.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3401.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3402.JPG" alt="IMG_3402" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3402.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3402.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3403.JPG" alt="IMG_3403" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3403.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3403.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3409.JPG" alt="IMG_3409" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3409.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3409.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3410.JPG" alt="IMG_3410" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3410.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3410.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3411.JPG" alt="IMG_3411" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3411.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3411.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3412.JPG" alt="IMG_3412" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3412.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3412.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3413.JPG" alt="IMG_3413" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3413.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3413.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3414.JPG" alt="IMG_3414" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3414.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3414.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3415.JPG" alt="IMG_3415" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3415.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3415.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3416.JPG" alt="IMG_3416" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3416.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3416.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3417.JPG" alt="IMG_3417" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3417.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3417.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3418.JPG" alt="IMG_3418" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3418.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3418.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3419.JPG" alt="IMG_3419" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3419.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3419.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3420.JPG" alt="IMG_3420" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3420.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3420.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3421.JPG" alt="IMG_3421" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3421.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3421.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3423.JPG" alt="IMG_3423" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3423.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3423.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3424.JPG" alt="IMG_3424" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3424.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3424.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3425.JPG" alt="IMG_3425" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3425.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3425.JPG" download>Download</a></div></div>
+
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3426.JPG" alt="IMG_3426" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3426.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3426.JPG" download>Download</a></div></div>
+                                            <div class="thumb"><img src="photos/Italy/Rome/Vatican/IMG_3427.JPG" alt="IMG_3427" loading="lazy"><div class="thumb-actions"><a class="small-btn view" data-src="photos/Italy/Rome/Vatican/IMG_3427.JPG">View</a><a class="small-btn" href="photos/Italy/Rome/Vatican/IMG_3427.JPG" download>Download</a></div></div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                            </div>
+                        </section>
+
+                    </div>
+                    <!-- /folders -->
                 </div>
             </div>
         </header>
 
         <main>
-            <header class="header photos-header">
-                <div class="container">
-                    <div class="header-content">
-                        <h1 class="h1">Italy</h1>
-                        <p class="header-text">Gallery — Italy</p>
-                    </div>
-                </div>
-            </header>
-
-            <section class="container gallery-section">
-                <!-- root where JS will render the top-strip and grid for this folder -->
-                <div id="folder-page-root"></div>
+            <section class="container">
+                <p>This is the end of the Minnesota photo page. Thank you for viewing, and I hope you enjoyed.</p>
             </section>
         </main>
+
+        <!-- Modal / Lightbox -->
+        <div class="modal" id="modal">
+            <div class="modal-inner" role="dialog" aria-modal="true" aria-label="Image preview">
+                <img id="modalImg" class="modal-img" src="" alt="">
+                <div class="modal-actions">
+                    <div class="left">
+                        <button id="prevBtn" class="btn">Prev</button>
+                        <button id="nextBtn" class="btn">Next</button>
+                    </div>
+                    <div class="right">
+                        <a id="openBtn" class="btn" target="_blank" rel="noopener">Open in new tab</a>
+                        <a id="downloadBtn" class="btn" href="#" download>Download</a>
+                        <button id="closeBtn" class="close-x" aria-label="Close">✕</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <footer class="footer">
             <div class="container">
@@ -96,7 +518,107 @@
             </div>
         </footer>
 
-    <script src="/assets/photos.js" defer></script>
-    <script src="/script.js" defer></script>
+        <script>
+            // Toggle folder open/close (works for nested folders too)
+            document.querySelectorAll('.folder .folder-header').forEach(header => {
+                header.addEventListener('click', e => {
+                    const folder = header.closest('.folder');
+                    folder.classList.toggle('open');
+                });
+                header.addEventListener('keydown', e => {
+                    if(e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        header.click();
+                    }
+                });
+            });
+
+            // Modal functionality with prev/next inside the current open grid
+            const modal = document.getElementById('modal');
+            const modalImg = document.getElementById('modalImg');
+            const openBtn = document.getElementById('openBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const closeBtn = document.getElementById('closeBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            // Build list of all thumbs in DOM order
+            function buildThumbsList() {
+                return Array.from(document.querySelectorAll('.thumb .view')).map(el => el.getAttribute('data-src'));
+            }
+            let thumbs = buildThumbsList();
+            let currentIndex = -1;
+
+            function openModal(src) {
+                thumbs = buildThumbsList(); // refresh (if DOM changed)
+                currentIndex = thumbs.indexOf(src);
+                if (currentIndex === -1) currentIndex = 0;
+                const url = thumbs[currentIndex];
+                modalImg.src = url;
+                modalImg.alt = url.split('/').pop();
+                openBtn.href = url;
+                downloadBtn.href = url;
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('open');
+                document.body.style.overflow = '';
+                modalImg.src = '';
+            }
+
+            function move(n) {
+                if (thumbs.length === 0) return;
+                currentIndex = (currentIndex + n + thumbs.length) % thumbs.length;
+                const url = thumbs[currentIndex];
+                modalImg.src = url;
+                openBtn.href = url;
+                downloadBtn.href = url;
+            }
+
+            // Wire up all view buttons
+            document.querySelectorAll('.thumb .view').forEach(btn => {
+                btn.addEventListener('click', e => {
+                    const src = btn.getAttribute('data-src');
+                    openModal(src);
+                });
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', e => {
+                if (e.target === modal) closeModal();
+            });
+            prevBtn.addEventListener('click', () => move(-1));
+            nextBtn.addEventListener('click', () => move(1));
+            document.addEventListener('keydown', e => {
+                if (!modal.classList.contains('open')) return;
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'ArrowLeft') move(-1);
+                if (e.key === 'ArrowRight') move(1);
+            });
+
+            // Theme switch wiring (keeps your existing theme logic)
+            const themeSwitch = document.getElementById('theme-switch');
+            if (localStorage.getItem('theme') === 'dark') themeSwitch.checked = true;
+            themeSwitch.addEventListener('change', () => {
+                if (themeSwitch.checked) {
+                    document.body.classList.add('dark');
+                    localStorage.setItem('theme','dark');
+                } else {
+                    document.body.classList.remove('dark');
+                    localStorage.setItem('theme','light');
+                }
+            });
+
+            // Make sure "view" anchors inside dynamically created thumbs open modal
+            document.addEventListener('click', e => {
+                if (e.target && e.target.matches('.view')) {
+                    e.preventDefault();
+                }
+            }, true);
+        </script>
+
+        <script src="/script.js" defer></script>
     </body>
 </html>
