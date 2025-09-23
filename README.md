@@ -41,12 +41,6 @@ Then open http://localhost:8000 in a browser.
 - Consider adding a tiny test or CI if you start adding logic.
 - Keep third-party assets minimal and prefer web-optimized images.
 
-## Next steps I might do later
-
-1. Add a short CHANGELOG or use GitHub releases for visible history.
-2. Add a tiny script to regenerate these stats automatically (optional).
-3. Add unit tests if JS logic grows.
-
 ## Requirements coverage
 
 - Create a README: Done
@@ -55,9 +49,6 @@ Then open http://localhost:8000 in a browser.
 
 ---
 
-If you want any specific meta added (last-deployed SHA, CI badge, or a shorter/longer personal blurb), tell me what to include and I will update this file.
 
-
-## URL: bogdanzogovic.onrender.com
-## URL #2: bogdanzogovic.vercel.app
-## URL #3: bogdanzogovic.com
+## URL: bogdanzogovic.vercel.com
+## URL #2: bogdan-zogovic.vercel.app
