@@ -769,70 +769,69 @@
           </ol>
         </div>
       </section>
-    
-      <section class="contact">
-        <div class="container">
-          <h2 class="h2" id="contact">Send Message</h2>
-          <div class="contact-content">
-            <div class="contact-textbox">
-              <!-- Please comment this component if you're not available for hire -->
-              <strong href="#" class="hire-alert">
-                <span class="indicator"></span>
-                Actively Online
-              </strong>
-              <p class="contact-text">
-                As a software engineer, I construct web interfaces and design
-                systems with a special love for accessibility and the
-                performance. I tend to code things from scratch and enjoy
-                bringing ideas to life.
-              </p>
-              <p class="contact-text">
-                I'm also an photographer, and I take pictures with
-                my Canon camera in my spare time.
-              </p>
+<section class="contact">
+  <div class="container">
+    <h2 class="h2" id="contact">Send Message</h2>
+    <div class="contact-content">
+      <div class="contact-textbox">
+        <strong href="#" class="hire-alert">
+          <span class="indicator"></span>
+          Actively Online
+        </strong>
+        <p class="contact-text">
+          As a software engineer, I construct web interfaces and design
+          systems with a special love for accessibility and performance. I tend
+          to code things from scratch and enjoy bringing ideas to life.
+        </p>
+        <p class="contact-text">
+          I'm also a photographer, and I take pictures with my Canon camera in
+          my spare time.
+        </p>
+      </div>
 
-            <!--
-              <img
-                src="assets/images/signatures.png"
-                alt="Syed Mohsin"
-                class="signatures"
-                loading="lazy"
-              />
-            
-            -->
-
-
-
-
-
-
-
-            </div>
-            <form action="#" class="contact-form" netlify>
-              <div class="form-field">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" required />
-              </div>
-              <div class="form-field">
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  required
-                  inputmode="email"
-                />
-              </div>
-              <div class="form-field">
-                <label for="message">What do you want to chat about?</label>
-                <textarea name="message" id="message" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-cta">Send</button>
-            </form>
-          </div>
+      <!-- Working email form using EmailJS -->
+      <form id="contact-form" class="contact-form">
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" required />
         </div>
-      </section>
-    </main>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" required />
+        </div>
+        <div class="form-field">
+          <label for="message">What do you want to chat about?</label>
+          <textarea name="message" id="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-cta">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("c16hmqACWDlKOIJMd"); // Replace with your EmailJS public key
+  })();
+
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.send("service_lbn504l", "template_wu8tk8j", {
+      from_name: document.getElementById('name').value,
+      from_email: document.getElementById('email').value,
+      message: document.getElementById('message').value,
+      to_email: "bzogovic7@gmail.com"
+    })
+    .then(function() {
+      alert('Message sent successfully!');
+    }, function(error) {
+      alert('Failed to send message: ' + JSON.stringify(error));
+    });
+  });
+</script>
+
 
     <footer class="footer">
       <div class="container">
